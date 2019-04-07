@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
+using System.Globalization;
 
 namespace superioratr
 {
@@ -12,15 +14,17 @@ namespace superioratr
         public double parteImaginaria;
         public double modulo;
         public double angulo;
+        public string tipoOriginal;
 
         public Complejo(string texto)
         {
-            if (TextoBonomico(texto))
+            if (TextoBinomico(texto))
             {
                 parteReal = ObtenerParteReal(texto);
                 parteImaginaria = ObtenerParteImaginaria(texto);
                 modulo = ModuloBinomico();
                 angulo = AnguloBinomico();
+                tipoOriginal = "Binomial";
             }
             else if (TextoPolar(texto))
             {
@@ -28,26 +32,30 @@ namespace superioratr
                 angulo = ObtenerAngulo(texto);
                 parteReal = ParteRealPolar();
                 parteImaginaria = ParteImaginariaPolar();
+                tipoOriginal = "Polar";
             }
             else
             {
-                //error
+                tipoOriginal = "No es un complejo";
             }
+
+            CorregirAngulo();
+
         }
 
-        public bool TextoBonomico(string texto)
+        public bool TextoBinomico(string texto)
         {
-            if (texto.Substring(0, 1) == "(" && texto.Substring(texto.Length - 2, 1) == ")")
+            if (texto.Substring(0, 1) == "(" && texto.Substring(texto.Length - 1, 1) == ")")
             {
-                string[] partes;
-                texto.Remove(0, 1);
-                texto.Remove(texto.Length - 2, 1);
+
+                string[] partes = LimpiarEntrada(texto);
+
                 if (texto.Contains(','))
                 {
-                    partes = texto.Split(',');
-
-                    if (partes.Length == 2 && double.TryParse(partes[0], out double d) && double.TryParse(partes[1], out double e))
-                    {
+                
+                    bool isNum1 = Double.TryParse(Convert.ToString(partes[0]), NumberStyles.Any, NumberFormatInfo.InvariantInfo, out double e);
+                    bool isNum2 = Double.TryParse(Convert.ToString(partes[1]), NumberStyles.Any, NumberFormatInfo.InvariantInfo, out double e2);
+                    if (partes.Length == 2 && isNum1 && isNum2) { 
                         return true;
                     }
                 }
@@ -56,16 +64,16 @@ namespace superioratr
         }
         public bool TextoPolar(string texto)
         {
-            if (texto.Substring(0, 1) == "[" && texto.Substring(texto.Length - 2, 1) == "]")
+            if (texto.Substring(0, 1) == "[" && texto.Substring(texto.Length - 1, 1) == "]")
             {
-                string[] partes;
-                texto.Remove(0, 1);
-                texto.Remove(texto.Length - 2, 1);
+                string[] partes = LimpiarEntrada(texto);
+
                 if (texto.Contains(';'))
                 {
-                    partes = texto.Split(';');
 
-                    if (partes.Length == 2 && double.TryParse(partes[0], out double d) && double.TryParse(partes[1], out double e))
+                    bool isNum1 = Double.TryParse(Convert.ToString(partes[0]), NumberStyles.Any, NumberFormatInfo.InvariantInfo, out double e);
+                    bool isNum2 = Double.TryParse(Convert.ToString(partes[1]), NumberStyles.Any, NumberFormatInfo.InvariantInfo, out double e2);
+                    if (partes.Length == 2 && isNum1 && isNum2)
                     {
                         return true;
                     }
@@ -73,20 +81,99 @@ namespace superioratr
             }
             return false;
         }
-        public double ObtenerParteReal(string texto)
+
+        void CorregirAngulo( )
+        {
+            if (parteImaginaria > 0 && parteReal > 0) //Primer cuadrante
+            {
+                return;
+
+            }
+            else if (parteImaginaria < 0 && parteReal > 0 && angulo <0)  //Cuarto cuadrante
+            {
+                angulo += Math.PI/2;
+
+            }
+
+            else if (parteImaginaria > 0 && parteReal < 0 || parteImaginaria < 0 && parteReal < 0)  //Segundo o tercer cuadrante 
+            {
+                angulo += Math.PI;
+
+
+
+            }
+        }
+
+            public string MostrarTransformado(Complejo complejo)
+        {
+            string s = "0";
+
+            if (complejo.tipoOriginal == "Binomial")
+            {
+              
+                s = ("["+complejo.modulo.ToString()+";"+complejo.angulo.ToString() + "]");
+                return s;
+
+            } else if (complejo.tipoOriginal == "Polar")
+            {
+               
+                s = ("(" + complejo.parteReal.ToString() + "," + complejo.parteImaginaria.ToString() + ")");
+                return s;
+
+            }
+
+            return s;
+
+
+        }
+
+
+        public bool SonTodosNumeros(char[] texto)
+        {
+            foreach (char c in texto)
+            {
+                if (!Char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+
+        }
+
+        public string[] LimpiarEntrada(string entrada)
         {
             string[] partes;
-            texto.Remove(0, 1);
-            texto.Remove(texto.Length - 2, 1);
-            partes = texto.Split(',');
+            entrada = entrada.Replace("(", "");
+            entrada = entrada.Replace(")", "");
+
+            entrada = entrada.Replace("[", "");
+            entrada = entrada.Replace("]", "");
+
+            if (entrada.Contains(';'))
+            {
+                partes = entrada.Split(';');
+            }
+            else
+            //if (entrada.Contains(','))
+            {
+                partes = entrada.Split(',');
+            }
+                 //else default error     
+          
+            return partes;
+        }
+        public double ObtenerParteReal(string texto)
+        {
+            string[] partes = LimpiarEntrada(texto);
+
             return Convert.ToDouble(partes[0]);
         }
         public double ObtenerParteImaginaria(string texto)
         {
-            string[] partes;
-            texto.Remove(0, 1);
-            texto.Remove(texto.Length - 2, 1);
-            partes = texto.Split(';');
+            string[] partes = LimpiarEntrada(texto);
+
             return Convert.ToDouble(partes[1]);
         }
         public double ModuloBinomico()
@@ -110,18 +197,15 @@ namespace superioratr
         }
         public double ObtenerModulo(string texto)
         {
-            string[] partes;
-            texto.Remove(0, 1);
-            texto.Remove(texto.Length - 2, 1);
-            partes = texto.Split(';');
+            string[] partes = LimpiarEntrada(texto);
+
+
             return Convert.ToDouble(partes[0]);
         }
         public double ObtenerAngulo(string texto)
         {
-            string[] partes;
-            texto.Remove(0, 1);
-            texto.Remove(texto.Length - 2, 1);
-            partes = texto.Split(';');
+            string[] partes = LimpiarEntrada(texto);
+
             return Convert.ToDouble(partes[1]);
         }
         public double ParteRealPolar()
