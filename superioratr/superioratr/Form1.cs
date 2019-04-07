@@ -10,22 +10,26 @@ using System.Windows.Forms;
 
 namespace superioratr
 {
-    public partial class Form1 : Form
+    public partial class Inicio : Form
     {
-        public Form1()
+        public Inicio()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LabelHolaMundo.Hide();
+
         }
 
         private void BotonHolaMundo_Click(object sender, EventArgs e)
         {
-            LabelHolaMundo.Text = "Hola Mundo :D";
-            LabelHolaMundo.Show();
+
+        }
+
+        private void divisiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

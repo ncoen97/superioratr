@@ -1,6 +1,6 @@
 ﻿namespace superioratr
 {
-    partial class Form1
+    partial class Inicio
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,47 +28,101 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BotonHolaMundo = new System.Windows.Forms.Button();
-            this.LabelHolaMundo = new System.Windows.Forms.Label();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabInicio = new System.Windows.Forms.TabPage();
+            this.tabTransformaciones = new System.Windows.Forms.TabPage();
+            this.tabOperacionesBasicas = new System.Windows.Forms.TabPage();
+            this.tabOperacionesAvanzadas = new System.Windows.Forms.TabPage();
+            this.tabSumaFasores = new System.Windows.Forms.TabPage();
+            this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
-            // BotonHolaMundo
+            // tabControl
             // 
-            this.BotonHolaMundo.Location = new System.Drawing.Point(316, 180);
-            this.BotonHolaMundo.Name = "BotonHolaMundo";
-            this.BotonHolaMundo.Size = new System.Drawing.Size(75, 23);
-            this.BotonHolaMundo.TabIndex = 0;
-            this.BotonHolaMundo.Text = "Hola Mundo";
-            this.BotonHolaMundo.UseVisualStyleBackColor = true;
-            this.BotonHolaMundo.Click += new System.EventHandler(this.BotonHolaMundo_Click);
+            this.tabControl.Controls.Add(this.tabInicio);
+            this.tabControl.Controls.Add(this.tabTransformaciones);
+            this.tabControl.Controls.Add(this.tabOperacionesBasicas);
+            this.tabControl.Controls.Add(this.tabOperacionesAvanzadas);
+            this.tabControl.Controls.Add(this.tabSumaFasores);
+            this.tabControl.Location = new System.Drawing.Point(12, 12);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(776, 426);
+            this.tabControl.TabIndex = 1;
             // 
-            // LabelHolaMundo
+            // tabInicio
             // 
-            this.LabelHolaMundo.AutoSize = true;
-            this.LabelHolaMundo.Location = new System.Drawing.Point(335, 130);
-            this.LabelHolaMundo.Name = "LabelHolaMundo";
-            this.LabelHolaMundo.Size = new System.Drawing.Size(0, 13);
-            this.LabelHolaMundo.TabIndex = 1;
+            this.tabInicio.Location = new System.Drawing.Point(4, 22);
+            this.tabInicio.Name = "tabInicio";
+            this.tabInicio.Padding = new System.Windows.Forms.Padding(3);
+            this.tabInicio.Size = new System.Drawing.Size(768, 400);
+            this.tabInicio.TabIndex = 0;
+            this.tabInicio.Text = "Inicio";
+            this.tabInicio.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // tabTransformaciones
+            // 
+            this.tabTransformaciones.Location = new System.Drawing.Point(4, 22);
+            this.tabTransformaciones.Name = "tabTransformaciones";
+            this.tabTransformaciones.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTransformaciones.Size = new System.Drawing.Size(768, 400);
+            this.tabTransformaciones.TabIndex = 1;
+            this.tabTransformaciones.Text = "Transformaciones";
+            this.tabTransformaciones.UseVisualStyleBackColor = true;
+            // 
+            // tabOperacionesBasicas
+            // 
+            this.tabOperacionesBasicas.Location = new System.Drawing.Point(4, 22);
+            this.tabOperacionesBasicas.Name = "tabOperacionesBasicas";
+            this.tabOperacionesBasicas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabOperacionesBasicas.Size = new System.Drawing.Size(768, 400);
+            this.tabOperacionesBasicas.TabIndex = 2;
+            this.tabOperacionesBasicas.Text = "Operaciones Básicas";
+            this.tabOperacionesBasicas.UseVisualStyleBackColor = true;
+            // 
+            // tabOperacionesAvanzadas
+            // 
+            this.tabOperacionesAvanzadas.Location = new System.Drawing.Point(4, 22);
+            this.tabOperacionesAvanzadas.Name = "tabOperacionesAvanzadas";
+            this.tabOperacionesAvanzadas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabOperacionesAvanzadas.Size = new System.Drawing.Size(768, 400);
+            this.tabOperacionesAvanzadas.TabIndex = 3;
+            this.tabOperacionesAvanzadas.Text = "Operaciones Avanzadas";
+            this.tabOperacionesAvanzadas.UseVisualStyleBackColor = true;
+            // 
+            // tabSumaFasores
+            // 
+            this.tabSumaFasores.Location = new System.Drawing.Point(4, 22);
+            this.tabSumaFasores.Name = "tabSumaFasores";
+            this.tabSumaFasores.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSumaFasores.Size = new System.Drawing.Size(768, 400);
+            this.tabSumaFasores.TabIndex = 4;
+            this.tabSumaFasores.Text = "Suma Fasores";
+            this.tabSumaFasores.UseVisualStyleBackColor = true;
+            // 
+            // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.LabelHolaMundo);
-            this.Controls.Add(this.BotonHolaMundo);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Controls.Add(this.tabControl);
+            this.Name = "Inicio";
+            this.Text = "NCOM";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button BotonHolaMundo;
-        private System.Windows.Forms.Label LabelHolaMundo;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabInicio;
+        private System.Windows.Forms.TabPage tabTransformaciones;
+        private System.Windows.Forms.TabPage tabOperacionesBasicas;
+        private System.Windows.Forms.TabPage tabOperacionesAvanzadas;
+        private System.Windows.Forms.TabPage tabSumaFasores;
     }
 }
 
