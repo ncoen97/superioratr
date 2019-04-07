@@ -19,7 +19,7 @@ namespace superioratr
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            labelFormatoIncorrecto.Hide();
         }
 
         private void BotonHolaMundo_Click(object sender, EventArgs e)
@@ -32,39 +32,96 @@ namespace superioratr
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonTipo_Click(object sender, EventArgs e)
         {
-           Complejo complejo = new Complejo(textBox1.Text);
-            label1.Text = "Complejo en forma: " + complejo.tipoOriginal;
+           Complejo complejo = new Complejo(textBoxTransformacion.Text);
             if (complejo.tipoOriginal == "Binomial")
             {
-                label2.Text = complejo.parteReal.ToString() +" + " + complejo.parteImaginaria.ToString() + "j";
-                button2.Enabled = true;
+                labelComplejoEnForma.Text = "Complejo en forma: " + complejo.tipoOriginal;
+                labelTransformado.Text = complejo.parteReal.ToString() +" + " + complejo.parteImaginaria.ToString() + "j";
+                buttonTransformar.Enabled = true;
             }
             else if (complejo.tipoOriginal == "Polar")
             {
-                label2.Text = "modulo: "+complejo.modulo.ToString() + ", angulo: " + complejo.angulo.ToString();
-                button2.Enabled = true;
+                labelComplejoEnForma.Text = "Complejo en forma: " + complejo.tipoOriginal;
+                labelTransformado.Text = "modulo: "+Math.Abs(complejo.modulo).ToString() + "    angulo: " + complejo.angulo.ToString();
+                buttonTransformar.Enabled = true;
             }
             else
             {
-                button2.Enabled = false;
+                labelFormatoIncorrecto.Show();
+                labelComplejoEnForma.Text = "";
+                labelTransformado.Text = "";
+                labelTransformar.Text = "";
+                buttonTransformar.Enabled = false;
             }
-
-
         }
-
-
 
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonTransformar_Click(object sender, EventArgs e)
         {
-            Complejo complejo = new Complejo(textBox1.Text);
-            label3.Text = complejo.MostrarTransformado(complejo);
+            Complejo complejo = new Complejo(textBoxTransformacion.Text);
+            labelTransformar.Text = complejo.MostrarTransformado(complejo);
+        }
+
+        private void tabInicio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxNum1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxTransformacion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSuma_Click(object sender, EventArgs e)
+        {
+            Complejo complejo1 = new Complejo(textBoxNum1.Text);
+            Complejo complejo2 = new Complejo(textBoxNum2.Text);
+            Complejo resultado = complejo1.Suma(complejo2);
+            labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
+            labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+        }
+
+        private void buttonResta_Click(object sender, EventArgs e)
+        {
+            Complejo complejo1 = new Complejo(textBoxNum1.Text);
+            Complejo complejo2 = new Complejo(textBoxNum2.Text);
+            Complejo resultado = complejo1.Resta(complejo2);
+            labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
+            labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+        }
+
+        private void buttonMultiplicacion_Click(object sender, EventArgs e)
+        {
+            Complejo complejo1 = new Complejo(textBoxNum1.Text);
+            Complejo complejo2 = new Complejo(textBoxNum2.Text);
+            Complejo resultado = complejo1.Multiplicacion(complejo2);
+            labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
+            labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+        }
+
+        private void buttonCociente_Click(object sender, EventArgs e)
+        {
+            Complejo complejo1 = new Complejo(textBoxNum1.Text);
+            Complejo complejo2 = new Complejo(textBoxNum2.Text);
+            Complejo resultado = complejo1.Cociente(complejo2);
+            labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
+            labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
         }
     }
 }
