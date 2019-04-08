@@ -43,7 +43,7 @@ namespace superioratr
                 modulo = ModuloBinomico();
                 angulo = AnguloBinomico();
                 tipoOriginal = "Binomial";
-                CorregirAngulo();
+                CorregirAngulos();
             }
             else if (TextoPolar(texto))
             {
@@ -52,6 +52,7 @@ namespace superioratr
                 parteReal = ParteRealPolar();
                 parteImaginaria = ParteImaginariaPolar();
                 tipoOriginal = "Polar";
+                CorregirAngulos();
             }
             else
             {
@@ -95,21 +96,29 @@ namespace superioratr
             return false;
         }
 
-        void CorregirAngulo( )
+        void CorregirAngulos( )
         {
-            if (parteImaginaria > 0 && parteReal > 0) //Primer cuadrante
+            while (angulo < 0)//si es menor a 0 le agrega vueltas hasta que sea positivo
             {
-                return;
+                angulo += 2 * Math.PI;
             }
-            else if (parteImaginaria < 0 && parteReal > 0 && angulo <0)  //Cuarto cuadrante
+            if (angulo >= 2 * Math.PI)//si es mayor a una vuelta, lo achica para que pertenezca a {0, 2pi}
             {
-                angulo += Math.Round(Math.PI * 2, 4);
+                angulo = ((angulo / (2 * Math.PI)) - Math.Truncate(angulo / (2 * Math.PI))) * 2 * Math.PI;
             }
-
-            else if (parteReal < 0)  //Segundo o tercer cuadrante 
+            
+            if (parteReal < 0 )  //Segundo o tercer cuadrante se arregla el angulo
             {
-                angulo += Math.Round(Math.PI, 4);
+                if (parteImaginaria > 0 && angulo > Math.PI)
+                {
+                    angulo -= Math.PI;
+                }
+                if (parteImaginaria < 0 && angulo > 3 * Math.PI / 2)
+                {
+                    angulo -= Math.PI;
+                }
             }
+            angulo = Math.Round(angulo, 4);
         }
 
             public string MostrarTransformado(Complejo complejo)
@@ -227,11 +236,15 @@ namespace superioratr
         }
         public Complejo Multiplicacion(Complejo multiplicado)
         {
-            return new Complejo(Math.Round(modulo * multiplicado.modulo, 4), Math.Round((((angulo + multiplicado.angulo) / (2 * Math.PI)) -Math.Truncate((angulo + multiplicado.angulo) / (2 * Math.PI)))*2*Math.PI,4) , "Polar");//angulo perteneciente a {0,2pi}
+            Complejo resultado = new Complejo(Math.Round(modulo * multiplicado.modulo, 4), Math.Round(angulo + multiplicado.angulo,4) , "Polar");//angulo perteneciente a {0,2pi}
+            resultado.CorregirAngulos();
+            return resultado;
         }
         public Complejo Cociente(Complejo divisor)
         {
-            return new Complejo(Math.Round(modulo / divisor.modulo,4), Math.Round((((angulo - divisor.angulo + 2 * Math.PI)/ (2 * Math.PI))-Math.Truncate((angulo - divisor.angulo + 2 * Math.PI) / (2 * Math.PI))) * 2 * Math.PI,4), "Polar");//angulo perteneciente a {0,2pi}
+            Complejo resultado =  new Complejo(Math.Round(modulo / divisor.modulo,4), Math.Round(angulo - divisor.angulo,4), "Polar");
+            resultado.CorregirAngulos();
+            return resultado;
         }
     }
 }

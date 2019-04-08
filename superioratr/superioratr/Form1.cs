@@ -37,12 +37,14 @@ namespace superioratr
            Complejo complejo = new Complejo(textBoxTransformacion.Text);
             if (complejo.tipoOriginal == "Binomial")
             {
+                labelFormatoIncorrecto.Hide();
                 labelComplejoEnForma.Text = "Complejo en forma: " + complejo.tipoOriginal;
                 labelTransformado.Text = complejo.parteReal.ToString() +" + " + complejo.parteImaginaria.ToString() + "j";
                 buttonTransformar.Enabled = true;
             }
             else if (complejo.tipoOriginal == "Polar")
             {
+                labelFormatoIncorrecto.Hide();
                 labelComplejoEnForma.Text = "Complejo en forma: " + complejo.tipoOriginal;
                 labelTransformado.Text = "modulo: "+Math.Abs(complejo.modulo).ToString() + "    angulo: " + complejo.angulo.ToString();
                 buttonTransformar.Enabled = true;
