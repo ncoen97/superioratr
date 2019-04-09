@@ -125,5 +125,19 @@ namespace superioratr
             labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
             labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
         }
-    }
+
+		private void ButtonPotencia_Click(object sender, EventArgs e)
+		{
+			Complejo complejo = new Complejo(textBoxComplejo.Text);
+			Int32 potencia = Convert.ToInt32(textBoxFactor.Text);
+			Complejo resultado = complejo.Potencia(potencia);
+			labelResultBinomial.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
+			labelResultPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+		}
+
+		private void ButtonRadicacion_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

@@ -232,7 +232,7 @@ namespace superioratr
         }
         public Complejo Resta(Complejo restado)
         {
-            return new Complejo(parteReal - restado.parteReal, parteImaginaria + restado.parteImaginaria, "Binomial");
+            return new Complejo(parteReal - restado.parteReal, parteImaginaria - restado.parteImaginaria, "Binomial");
         }
         public Complejo Multiplicacion(Complejo multiplicado)
         {
@@ -246,5 +246,12 @@ namespace superioratr
             resultado.CorregirAngulos();
             return resultado;
         }
+
+		public Complejo Potencia(Int32 potencia)
+		{
+			Complejo resultado = new Complejo(Math.Pow(modulo, potencia), angulo * potencia, "Polar");
+			resultado.CorregirAngulos();
+			return resultado;
+		}
     }
 }
