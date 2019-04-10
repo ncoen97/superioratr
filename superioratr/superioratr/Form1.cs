@@ -34,19 +34,19 @@ namespace superioratr
 
         private void buttonTipo_Click(object sender, EventArgs e)
         {
-           Complejo complejo = new Complejo(textBoxTransformacion.Text);
+            Complejo complejo = new Complejo(textBoxTransformacion.Text);
             if (complejo.tipoOriginal == "Binomial")
             {
                 labelFormatoIncorrecto.Hide();
                 labelComplejoEnForma.Text = "Complejo en forma: " + complejo.tipoOriginal;
-                labelTransformado.Text = complejo.parteReal.ToString() +" + " + complejo.parteImaginaria.ToString() + "j";
+                labelTransformado.Text = complejo.parteReal.ToString() + " + " + complejo.parteImaginaria.ToString() + "j";
                 buttonTransformar.Enabled = true;
             }
             else if (complejo.tipoOriginal == "Polar")
             {
                 labelFormatoIncorrecto.Hide();
                 labelComplejoEnForma.Text = "Complejo en forma: " + complejo.tipoOriginal;
-                labelTransformado.Text = "modulo: "+Math.Abs(complejo.modulo).ToString() + "    angulo: " + complejo.angulo.ToString();
+                labelTransformado.Text = "modulo: " + Math.Abs(complejo.modulo).ToString() + "    angulo: " + complejo.angulo.ToString();
                 buttonTransformar.Enabled = true;
             }
             else
@@ -126,19 +126,32 @@ namespace superioratr
             labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
         }
 
-		private void ButtonPotencia_Click(object sender, EventArgs e)
-		{
-			Complejo complejo = new Complejo(textBoxComplejo.Text);
-			Int32 potencia = Convert.ToInt32(textBoxFactor.Text);
-			Complejo resultado = complejo.Potencia(potencia);
-			labelResultBinomial.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
-			labelResultPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
-		}
+        private void ButtonPotencia_Click(object sender, EventArgs e)
+        {
+            Complejo complejo = new Complejo(textBoxComplejo.Text);
+            Int32 potencia = Convert.ToInt32(textBoxFactor.Text);
+            Complejo resultado = complejo.Potencia(potencia);
+            labelResultBinomial.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
+            labelResultPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+        }
 
-		private void ButtonRadicacion_Click(object sender, EventArgs e)
-		{
+        private void ButtonRadicacion_Click(object sender, EventArgs e)
+        {
+            Complejo complejo = new Complejo(textBoxComplejo.Text);
+            Int32 factor = Convert.ToInt32(textBoxFactor.Text);
+            Complejo[] resultados = complejo.Radicacion(factor);
+            labelResultPolar.Text = "modulo: " + Math.Abs(resultados[0].modulo).ToString() + "    angulo: " + resultados[0].angulo.ToString() + "+2.k.pi/" + factor;
+           /* ListViewItem[] items = new ListViewItem[factor];
+            for (int i = 0; i < factor; i++)
+            {
+                ListViewItem item = new ListViewItem("W" + i.ToString());
+                item.SubItems.Add("Hola");
+                items[i] = item;
+            }
 
-		}
+            listView1.Items.AddRange(items);
+            listView1.Refresh(); No se muestran los items*/
+        } 
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -176,6 +189,11 @@ namespace superioratr
             double modulo = primerFasor.complejoFinal.modulo;
             double anguloFinal = primerFasor.complejoFinal.angulo;
             label15.Text = "e^" + pulsacion + primerFasor.complejoFinal.ToString();
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

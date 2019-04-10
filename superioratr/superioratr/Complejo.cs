@@ -70,7 +70,7 @@ namespace superioratr
                 {
                     bool isNum1 = Double.TryParse(Convert.ToString(partes[0]), NumberStyles.Any, NumberFormatInfo.InvariantInfo, out double e);
                     bool isNum2 = Double.TryParse(Convert.ToString(partes[1]), NumberStyles.Any, NumberFormatInfo.InvariantInfo, out double e2);
-                    if (partes.Length == 2 && isNum1 && isNum2) { 
+                    if (partes.Length == 2 && isNum1 && isNum2) {
                         return true;
                     }
                 }
@@ -96,7 +96,7 @@ namespace superioratr
             return false;
         }
 
-        void CorregirAngulos( )
+        void CorregirAngulos()
         {
             while (angulo < 0)//si es menor a 0 le agrega vueltas hasta que sea positivo
             {
@@ -106,8 +106,8 @@ namespace superioratr
             {
                 angulo = ((angulo / (2 * Math.PI)) - Math.Truncate(angulo / (2 * Math.PI))) * 2 * Math.PI;
             }
-            
-            if (parteReal < 0 )  //Segundo o tercer cuadrante se arregla el angulo
+
+            if (parteReal < 0)  //Segundo o tercer cuadrante se arregla el angulo
             {
                 if (parteImaginaria > 0 && angulo > Math.PI)
                 {
@@ -121,19 +121,19 @@ namespace superioratr
             angulo = Math.Round(angulo, 4);
         }
 
-            public string MostrarTransformado(Complejo complejo)
+        public string MostrarTransformado(Complejo complejo)
         {
             string s = "0";
 
             if (complejo.tipoOriginal == "Binomial")
             {
-              
-                s = ("["+complejo.modulo.ToString()+";"+complejo.angulo.ToString() + "]");
+
+                s = ("[" + complejo.modulo.ToString() + ";" + complejo.angulo.ToString() + "]");
                 return s;
 
             } else if (complejo.tipoOriginal == "Polar")
             {
-               
+
                 s = ("(" + complejo.parteReal.ToString() + "," + complejo.parteImaginaria.ToString() + ")");
                 return s;
 
@@ -172,7 +172,7 @@ namespace superioratr
             {
                 partes = entrada.Split(',');
             }
-          
+
             return partes;
         }
         public double ObtenerParteReal(string texto)
@@ -195,7 +195,7 @@ namespace superioratr
         {
             if (parteReal != 0)
             {
-                return Math.Round(Math.Atan(parteImaginaria / parteReal) , 4);
+                return Math.Round(Math.Atan(parteImaginaria / parteReal), 4);
             }
             else
             {
@@ -228,7 +228,7 @@ namespace superioratr
         }
         public Complejo Suma(Complejo sumado)
         {
-           return new Complejo(parteReal + sumado.parteReal, parteImaginaria + sumado.parteImaginaria, "Binomial");
+            return new Complejo(parteReal + sumado.parteReal, parteImaginaria + sumado.parteImaginaria, "Binomial");
         }
         public Complejo Resta(Complejo restado)
         {
@@ -236,22 +236,35 @@ namespace superioratr
         }
         public Complejo Multiplicacion(Complejo multiplicado)
         {
-            Complejo resultado = new Complejo(Math.Round(modulo * multiplicado.modulo, 4), Math.Round(angulo + multiplicado.angulo,4) , "Polar");//angulo perteneciente a {0,2pi}
+            Complejo resultado = new Complejo(Math.Round(modulo * multiplicado.modulo, 4), Math.Round(angulo + multiplicado.angulo, 4), "Polar");//angulo perteneciente a {0,2pi}
             resultado.CorregirAngulos();
             return resultado;
         }
         public Complejo Cociente(Complejo divisor)
         {
-            Complejo resultado =  new Complejo(Math.Round(modulo / divisor.modulo,4), Math.Round(angulo - divisor.angulo,4), "Polar");
+            Complejo resultado = new Complejo(Math.Round(modulo / divisor.modulo, 4), Math.Round(angulo - divisor.angulo, 4), "Polar");
             resultado.CorregirAngulos();
             return resultado;
         }
 
-		public Complejo Potencia(Int32 potencia)
-		{
-			Complejo resultado = new Complejo(Math.Pow(modulo, potencia), angulo * potencia, "Polar");
-			resultado.CorregirAngulos();
-			return resultado;
-		}
+        public Complejo Potencia(Int32 potencia)
+        {
+            Complejo resultado = new Complejo(Math.Pow(modulo, potencia), angulo * potencia, "Polar");
+            resultado.CorregirAngulos();
+
+            return resultado;
+        }
+        public Complejo[] Radicacion(Int32 factor)
+        {
+            Complejo[] resultados = new Complejo[factor];
+
+            for (int i = 0; i < factor; i++)
+            {
+                resultados[i] = new Complejo(Math.Pow(modulo, 1 / factor), (angulo + 2 * i * Math.PI) / factor, "Polar");
+                resultados[i].CorregirAngulos();
+            }
+
+            return resultados;
+        }
     }
 }
