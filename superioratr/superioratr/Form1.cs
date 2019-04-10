@@ -139,5 +139,44 @@ namespace superioratr
 		{
 
 		}
-	}
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Int32 amplitud = Convert.ToInt32(textBoxAmplitud.Text);
+            Int32 pulsacion = Convert.ToInt32(textBoxPulsacion.Text);
+            double angulo = double.Parse(textBoxAngulo.Text);
+            Fasor primerFasor = new Fasor(amplitud, pulsacion, comboBoxFuncion.Text, angulo);
+
+            Int32 segAmplitud = Convert.ToInt32(textBoxAmplitud.Text);
+            Int32 segPulsacion = Convert.ToInt32(textBoxPulsacion.Text);
+            double segAngulo = double.Parse(textBoxAngulo.Text);
+            Fasor segundoFasor = new Fasor(segAmplitud, segPulsacion, comboBoxFuncion2.Text, segAngulo);
+
+            primerFasor.sumarFasores(segundoFasor);
+            double modulo = primerFasor.complejoFinal.modulo;
+            double anguloFinal = primerFasor.complejoFinal.angulo;
+            label15.Text = "e^" + pulsacion + primerFasor.complejoFinal.ToString();
+
+        }
+    }
 }

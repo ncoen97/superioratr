@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Complejo.cs" />
+    <Compile Include="Fasor.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
