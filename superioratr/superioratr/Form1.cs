@@ -15,7 +15,9 @@ namespace superioratr
         public Inicio()
         {
             InitializeComponent();
-        }
+			listView1.Columns.Add("Header", 100);
+			listView1.Columns.Add("Details", 100);
+		}
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -141,16 +143,18 @@ namespace superioratr
             Int32 factor = Convert.ToInt32(textBoxFactor.Text);
             Complejo[] resultados = complejo.Radicacion(factor);
             labelResultPolar.Text = "modulo: " + Math.Abs(resultados[0].modulo).ToString() + "    angulo: " + resultados[0].angulo.ToString() + "+2.k.pi/" + factor;
-           /* ListViewItem[] items = new ListViewItem[factor];
-            for (int i = 0; i < factor; i++)
+			//ListViewItem[] items = new ListViewItem[factor];
+			listView1.Items.Clear();
+			for (int i = 0; i < factor; i++)
             {
                 ListViewItem item = new ListViewItem("W" + i.ToString());
                 item.SubItems.Add("Hola");
-                items[i] = item;
-            }
+				listView1.Items.Add(item);
+				//items[i] = item;
+			}
 
-            listView1.Items.AddRange(items);
-            listView1.Refresh(); No se muestran los items*/
+            //listView1.Items.AddRange(items);
+            listView1.Refresh();
         } 
 
         private void label1_Click(object sender, EventArgs e)
