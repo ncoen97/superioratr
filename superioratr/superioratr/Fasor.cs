@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace superioratr
 {
@@ -29,6 +30,7 @@ namespace superioratr
             this.convertirACoseno(this);
             this.convertirACoseno(fasor);
             complejoFinal = new Complejo(this.sumarParteReal(fasor), this.sumarParteImaginaria(fasor), "Binomial");
+            MessageBox.Show("complejo Final" + complejoFinal.parteReal.ToString() + " " +  complejoFinal.parteImaginaria.ToString());
             fasor.complejoFinal = this.complejoFinal;
         }
 
@@ -48,14 +50,14 @@ namespace superioratr
         private double sumarParteReal(Fasor fasor)
         {
             double primero = this.amplitud * Math.Cos(this.anguloFaseInicial);
-            double segundo = fasor.amplitud * Math.Cos(this.anguloFaseInicial);
+            double segundo = fasor.amplitud * Math.Cos(fasor.anguloFaseInicial);
             return primero + segundo;
         }
 
         private double sumarParteImaginaria(Fasor fasor)
         {
             double primero = this.amplitud * Math.Sin(this.anguloFaseInicial);
-            double segundo = fasor.amplitud * Math.Sin(this.anguloFaseInicial);
+            double segundo = fasor.amplitud * Math.Sin(fasor.anguloFaseInicial);
             return primero + segundo;
         }
 

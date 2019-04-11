@@ -96,7 +96,7 @@ namespace superioratr
             return false;
         }
 
-        void CorregirAngulos()
+        public void CorregirAngulos()
         {
             while (angulo < 0)//si es menor a 0 le agrega vueltas hasta que sea positivo
             {

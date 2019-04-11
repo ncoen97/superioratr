@@ -183,16 +183,19 @@ namespace superioratr
             Int32 pulsacion = Convert.ToInt32(textBoxPulsacion.Text);
             double angulo = double.Parse(textBoxAngulo.Text);
             Fasor primerFasor = new Fasor(amplitud, pulsacion, comboBoxFuncion.Text, angulo);
+            label8.Text = amplitud + " " + comboBoxFuncion.Text + "(" + pulsacion + "t + " + angulo + ")";  
 
-            Int32 segAmplitud = Convert.ToInt32(textBoxAmplitud.Text);
-            Int32 segPulsacion = Convert.ToInt32(textBoxPulsacion.Text);
-            double segAngulo = double.Parse(textBoxAngulo.Text);
+            Int32 segAmplitud = Convert.ToInt32(textBoxAmplitud2.Text);
+            Int32 segPulsacion = Convert.ToInt32(textBoxPulsacion2.Text);
+            double segAngulo = double.Parse(textBoxAngulo2.Text);
             Fasor segundoFasor = new Fasor(segAmplitud, segPulsacion, comboBoxFuncion2.Text, segAngulo);
+            label14.Text = segAmplitud + " " + comboBoxFuncion2.Text + "(" + segPulsacion + "t + " + segAngulo + ")";
 
             primerFasor.sumarFasores(segundoFasor);
-            double modulo = primerFasor.complejoFinal.modulo;
-            double anguloFinal = primerFasor.complejoFinal.angulo;
-            label15.Text = "e^" + pulsacion + primerFasor.complejoFinal.ToString();
+            primerFasor.complejoFinal.CorregirAngulos();
+            string modulo = primerFasor.complejoFinal.modulo.ToString();
+            string anguloFinal = primerFasor.complejoFinal.angulo.ToString();
+            label15.Text = modulo + " cos(" + primerFasor.pulsacion + "t + ( " + anguloFinal + " )";
 
         }
 
