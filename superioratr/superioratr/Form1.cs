@@ -179,29 +179,98 @@ namespace superioratr
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Int32 amplitud = Convert.ToInt32(textBoxAmplitud.Text);
-            Int32 pulsacion = Convert.ToInt32(textBoxPulsacion.Text);
-            double angulo = double.Parse(textBoxAngulo.Text);
-            Fasor primerFasor = new Fasor(amplitud, pulsacion, comboBoxFuncion.Text, angulo);
-            label8.Text = amplitud + " " + comboBoxFuncion.Text + "(" + pulsacion + "t + " + angulo + ")";  
+            if (this.verificarCampos())
+            {
+                double amplitud = double.Parse(textBoxAmplitud.Text);
+                double pulsacion = double.Parse(textBoxPulsacion.Text);
+                double angulo = double.Parse(textBoxAngulo.Text);
+                Fasor primerFasor = new Fasor(amplitud, pulsacion, comboBoxFuncion.Text, angulo);
+                labelPrimerFasor.Text = amplitud + " " + comboBoxFuncion.Text + "(" + pulsacion + "t + ( " + angulo + "))";
 
-            Int32 segAmplitud = Convert.ToInt32(textBoxAmplitud2.Text);
-            Int32 segPulsacion = Convert.ToInt32(textBoxPulsacion2.Text);
-            double segAngulo = double.Parse(textBoxAngulo2.Text);
-            Fasor segundoFasor = new Fasor(segAmplitud, segPulsacion, comboBoxFuncion2.Text, segAngulo);
-            label14.Text = segAmplitud + " " + comboBoxFuncion2.Text + "(" + segPulsacion + "t + " + segAngulo + ")";
+                double segAmplitud = double.Parse(textBoxAmplitud2.Text);
+                double segPulsacion = double.Parse(textBoxPulsacion2.Text);
+                double segAngulo = double.Parse(textBoxAngulo2.Text);
+                Fasor segundoFasor = new Fasor(segAmplitud, segPulsacion, comboBoxFuncion2.Text, segAngulo);
+                labelSegundoFasor.Text = segAmplitud + " " + comboBoxFuncion2.Text + "(" + segPulsacion + "t + ( " + segAngulo + "))";
 
-            primerFasor.sumarFasores(segundoFasor);
-            primerFasor.complejoFinal.CorregirAngulos();
-            string modulo = primerFasor.complejoFinal.modulo.ToString();
-            string anguloFinal = primerFasor.complejoFinal.angulo.ToString();
-            label15.Text = modulo + " cos(" + primerFasor.pulsacion + "t + ( " + anguloFinal + " )";
+                primerFasor.sumarFasores(segundoFasor);
+                primerFasor.complejoFinal.CorregirAngulos();
+                string modulo = primerFasor.complejoFinal.modulo.ToString();
+                string anguloFinal = primerFasor.complejoFinal.angulo.ToString();
+                labelResultado.Text = modulo + " cos(" + primerFasor.pulsacion + "t + ( " + anguloFinal + " ))";
 
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        private bool verificarCampos()
+        {
+            string error = "";
+            double x;
+            if (string.IsNullOrWhiteSpace(textBoxAmplitud.Text)) { error += "El campo 'Amplitud' debe estar completo\n"; } 
+            if (string.IsNullOrWhiteSpace(textBoxPulsacion.Text)) { error += "El campo 'Pulsación' debe estar completo\n"; }
+            if (string.IsNullOrWhiteSpace(textBoxAngulo.Text)) { error += "El campo 'Ángulo' debe estar completo\n"; }
+            if (!double.TryParse(textBoxAmplitud.Text, out x)) { error += "El campo 'Amplitud' debe ser numérico\n"; }
+            if (!double.TryParse(textBoxPulsacion.Text, out x)) { error += "El campo 'Pulsación' debe ser numérico\n"; }
+            if (!double.TryParse(textBoxAngulo.Text, out x)) { error += "El campo 'Ángulo' debe ser numérico\n"; }
+            if (string.IsNullOrWhiteSpace(comboBoxFuncion.Text)) { error += "El campo 'Funcion' debe estar completo\n"; }
+
+            if (string.IsNullOrWhiteSpace(textBoxAmplitud2.Text)) { error += "El campo 'Amplitud' debe estar completo\n"; }
+            if (string.IsNullOrWhiteSpace(textBoxPulsacion2.Text)) { error += "El campo 'Pulsación' debe estar completo\n"; }
+            if (string.IsNullOrWhiteSpace(textBoxAngulo2.Text)) {error += "El campo 'Ángulo' debe estar completo\n"; }
+            if (!double.TryParse(textBoxAmplitud2.Text, out x)) { error += "El campo 'Amplitud' debe ser numérico\n"; }
+            if (!double.TryParse(textBoxPulsacion2.Text, out x)) { error += "El campo 'Pulsación' debe ser numérico\n"; }
+            if (!double.TryParse(textBoxAngulo2.Text, out x)) { error += "El campo 'Ángulo' debe ser numérico\n"; }
+            if (string.IsNullOrWhiteSpace(comboBoxFuncion2.Text)) { error += "El campo 'Funcion' debe estar completo\n"; }
+            if (textBoxPulsacion.Text != textBoxPulsacion2.Text) { error += "Las pulsaciones deben ser las mismas para ambos fasores\n"; }
+
+            if (error != "")
+            {
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
+
+            return true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            textBoxAmplitud.Clear();
+            textBoxPulsacion.Clear();
+            comboBoxFuncion.SelectedIndex = -1;
+            textBoxAngulo.Clear();
+            textBoxAmplitud2.Clear();
+            textBoxPulsacion2.Clear();
+            comboBoxFuncion2.SelectedIndex = -1;
+            textBoxAngulo2.Clear();
+            labelPrimerFasor.Text = "";
+            labelSegundoFasor.Text = "";
+            labelResultado.Text = "";
+        }
+
+        private void labelPrimerFasor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelSegundoFasor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelResultado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+    }

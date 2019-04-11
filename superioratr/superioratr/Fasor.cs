@@ -30,7 +30,6 @@ namespace superioratr
             this.convertirACoseno(this);
             this.convertirACoseno(fasor);
             complejoFinal = new Complejo(this.sumarParteReal(fasor), this.sumarParteImaginaria(fasor), "Binomial");
-            MessageBox.Show("complejo Final" + complejoFinal.parteReal.ToString() + " " +  complejoFinal.parteImaginaria.ToString());
             fasor.complejoFinal = this.complejoFinal;
         }
 
