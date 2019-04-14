@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace superioratr
 {
     public partial class Inicio : Form
@@ -182,14 +181,87 @@ namespace superioratr
             if (this.verificarCampos())
             {
                 double amplitud = double.Parse(textBoxAmplitud.Text);
-                double pulsacion = double.Parse(textBoxPulsacion.Text);
-                double angulo = double.Parse(textBoxAngulo.Text);
+                double pulsacion = 0;
+               
+                if (textBoxPulsacion.Text.Contains("PI") || textBoxPulsacion.Text.Contains("pi"))
+                {
+                    textBoxPulsacion.Text=textBoxPulsacion.Text.Replace("PI", "1");
+                    textBoxPulsacion.Text=textBoxPulsacion.Text.Replace("pi", "1");
+                    pulsacion = double.Parse(textBoxPulsacion.Text);
+                    pulsacion *= Math.PI;
+
+                } else
+                {
+                    pulsacion = double.Parse(textBoxPulsacion.Text);
+
+                }
+                double angulo = 0; //double.Parse(textBoxAngulo.Text); ;
+
+                if (textBoxAngulo.Text.Contains("PI/") || textBoxAngulo.Text.Contains("pi/"))
+                {
+                    textBoxAngulo.Text = textBoxAngulo.Text.Replace("PI", "1");
+                    textBoxAngulo.Text = textBoxAngulo.Text.Replace("pi", "1");
+
+                    DataTable dt = new DataTable();
+                    var v = dt.Compute(textBoxAngulo.Text, "");
+                    angulo = double.Parse(v.ToString());
+                    
+                    angulo *= Math.PI;
+
+                }
+                else
+                {
+                    angulo = double.Parse(textBoxAngulo.Text);
+
+                }
+
+
+
                 Fasor primerFasor = new Fasor(amplitud, pulsacion, comboBoxFuncion.Text, angulo);
                 labelPrimerFasor.Text = "Su primer Fasor es: " + amplitud + " " + comboBoxFuncion.Text + "(" + pulsacion + "t + ( " + angulo + "))";
 
                 double segAmplitud = double.Parse(textBoxAmplitud2.Text);
-                double segPulsacion = double.Parse(textBoxPulsacion2.Text);
-                double segAngulo = double.Parse(textBoxAngulo2.Text);
+                double segPulsacion = 0;
+
+                if (textBoxPulsacion2.Text.Contains("PI") || textBoxPulsacion2.Text.Contains("pi"))
+                {
+                    textBoxPulsacion2.Text = textBoxPulsacion2.Text.Replace("PI", "1");
+                    textBoxPulsacion2.Text = textBoxPulsacion2.Text.Replace("pi", "1");
+                    segPulsacion = double.Parse(textBoxPulsacion2.Text);
+                    segPulsacion *= Math.PI;
+
+                }
+                else
+                {
+                    segPulsacion = double.Parse(textBoxPulsacion2.Text);
+
+                }
+
+
+                double segAngulo = 0; // double.Parse(textBoxAngulo2.Text);
+
+                if (textBoxAngulo2.Text.Contains("PI/") || textBoxAngulo2.Text.Contains("pi/"))
+                {
+                    textBoxAngulo2.Text = textBoxAngulo2.Text.Replace("PI", "1");
+                    textBoxAngulo2.Text = textBoxAngulo2.Text.Replace("pi", "1");
+
+                    DataTable dt = new DataTable();
+                    var v = dt.Compute(textBoxAngulo2.Text,"");
+                    segAngulo = double.Parse(v.ToString());
+                    segAngulo *= Math.PI;
+
+                }
+                else
+                {
+
+                    segAngulo = double.Parse(textBoxAngulo2.Text);
+
+                }
+
+               
+
+
+
                 Fasor segundoFasor = new Fasor(segAmplitud, segPulsacion, comboBoxFuncion2.Text, segAngulo);
                 labelSegundoFasor.Text = "Su segundo Fasor es: " + segAmplitud + " " + comboBoxFuncion2.Text + "(" + segPulsacion + "t + ( " + segAngulo + "))";
 
@@ -215,16 +287,16 @@ namespace superioratr
             if (string.IsNullOrWhiteSpace(textBoxPulsacion.Text)) { error += "El campo 'Pulsación' debe estar completo\n"; }
             if (string.IsNullOrWhiteSpace(textBoxAngulo.Text)) { error += "El campo 'Ángulo' debe estar completo\n"; }
             if (!double.TryParse(textBoxAmplitud.Text, out x)) { error += "El campo 'Amplitud' debe ser numérico\n"; }
-            if (!double.TryParse(textBoxPulsacion.Text, out x)) { error += "El campo 'Pulsación' debe ser numérico\n"; }
-            if (!double.TryParse(textBoxAngulo.Text, out x)) { error += "El campo 'Ángulo' debe ser numérico\n"; }
+           // if (!double.TryParse(textBoxPulsacion.Text, out x)) { error += "El campo 'Pulsación' debe ser numérico\n"; }
+            //if (!double.TryParse(textBoxAngulo.Text, out x)) { error += "El campo 'Ángulo' debe ser numérico\n"; }
             if (string.IsNullOrWhiteSpace(comboBoxFuncion.Text)) { error += "El campo 'Funcion' debe estar completo\n"; }
 
             if (string.IsNullOrWhiteSpace(textBoxAmplitud2.Text)) { error += "El campo 'Amplitud' debe estar completo\n"; }
             if (string.IsNullOrWhiteSpace(textBoxPulsacion2.Text)) { error += "El campo 'Pulsación' debe estar completo\n"; }
             if (string.IsNullOrWhiteSpace(textBoxAngulo2.Text)) {error += "El campo 'Ángulo' debe estar completo\n"; }
             if (!double.TryParse(textBoxAmplitud2.Text, out x)) { error += "El campo 'Amplitud' debe ser numérico\n"; }
-            if (!double.TryParse(textBoxPulsacion2.Text, out x)) { error += "El campo 'Pulsación' debe ser numérico\n"; }
-            if (!double.TryParse(textBoxAngulo2.Text, out x)) { error += "El campo 'Ángulo' debe ser numérico\n"; }
+            //if (!double.TryParse(textBoxPulsacion2.Text, out x)) { error += "El campo 'Pulsación' debe ser numérico\n"; }
+            //if (!double.TryParse(textBoxAngulo2.Text, out x)) { error += "El campo 'Ángulo' debe ser numérico\n"; }
             if (string.IsNullOrWhiteSpace(comboBoxFuncion2.Text)) { error += "El campo 'Funcion' debe estar completo\n"; }
             if (textBoxPulsacion.Text != textBoxPulsacion2.Text) { error += "Las pulsaciones deben ser las mismas para ambos fasores\n"; }
 
@@ -269,6 +341,11 @@ namespace superioratr
         }
 
         private void labelResultado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabSumaFasores_Click(object sender, EventArgs e)
         {
 
         }
