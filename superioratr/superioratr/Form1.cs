@@ -35,28 +35,33 @@ namespace superioratr
 
         private void buttonTipo_Click(object sender, EventArgs e)
         {
+            if (NOEstaVacio()) {
+
             Complejo complejo = new Complejo(textBoxTransformacion.Text);
             if (complejo.tipoOriginal == "Binomial")
             {
                 labelFormatoIncorrecto.Hide();
                 labelComplejoEnForma.Text = "Complejo en forma: " + complejo.tipoOriginal;
                 labelTransformado.Text = complejo.parteReal.ToString() + " + " + complejo.parteImaginaria.ToString() + "j";
-                buttonTransformar.Enabled = true;
+                
             }
             else if (complejo.tipoOriginal == "Polar")
             {
                 labelFormatoIncorrecto.Hide();
                 labelComplejoEnForma.Text = "Complejo en forma: " + complejo.tipoOriginal;
                 labelTransformado.Text = "modulo: " + Math.Abs(complejo.modulo).ToString() + "    angulo: " + complejo.angulo.ToString();
-                buttonTransformar.Enabled = true;
+               
             }
             else
             {
+                textBoxTransformacion.Text = "";
                 labelFormatoIncorrecto.Show();
                 labelComplejoEnForma.Text = "";
                 labelTransformado.Text = "";
                 labelTransformar.Text = "";
-                buttonTransformar.Enabled = false;
+               
+            }
+            
             }
         }
 
@@ -67,8 +72,31 @@ namespace superioratr
 
         private void buttonTransformar_Click(object sender, EventArgs e)
         {
-            Complejo complejo = new Complejo(textBoxTransformacion.Text);
-            labelTransformar.Text = complejo.MostrarTransformado(complejo);
+          if(NOEstaVacio())
+            {
+
+                Complejo complejo = new Complejo(textBoxTransformacion.Text);
+                labelTransformar.Text = complejo.MostrarTransformado(complejo);
+            }
+
+
+
+        }
+
+        private bool NOEstaVacio()
+        {
+            string error = "";
+            double x;
+            if (string.IsNullOrEmpty(textBoxTransformacion.Text)) { error += "No hay complejo para transformar"; }
+            
+            if (error != "")
+            {
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK);
+                textBoxTransformacion.Text = "";
+                return false;
+            }
+
+            return true;
         }
 
         private void tabInicio_Click(object sender, EventArgs e)
@@ -182,19 +210,16 @@ namespace superioratr
             {
                 double amplitud = double.Parse(textBoxAmplitud.Text);
                 double pulsacion = 0;
-               
+
                 if (textBoxPulsacion.Text.Contains("PI") || textBoxPulsacion.Text.Contains("pi"))
                 {
-                    textBoxPulsacion.Text=textBoxPulsacion.Text.Replace("PI", "1");
-                    textBoxPulsacion.Text=textBoxPulsacion.Text.Replace("pi", "1");
+                    textBoxPulsacion.Text = textBoxPulsacion.Text.Replace("PI", "1");
+                    textBoxPulsacion.Text = textBoxPulsacion.Text.Replace("pi", "1");
                     pulsacion = double.Parse(textBoxPulsacion.Text);
                     pulsacion *= Math.PI;
 
-                } else
-                {
-                    pulsacion = double.Parse(textBoxPulsacion.Text);
-
                 }
+
                 double angulo = 0; //double.Parse(textBoxAngulo.Text); ;
 
                 if (textBoxAngulo.Text.Contains("PI/") || textBoxAngulo.Text.Contains("pi/"))
@@ -205,38 +230,25 @@ namespace superioratr
                     DataTable dt = new DataTable();
                     var v = dt.Compute(textBoxAngulo.Text, "");
                     angulo = double.Parse(v.ToString());
-                    
+
                     angulo *= Math.PI;
 
                 }
-                else
-                {
-                    angulo = double.Parse(textBoxAngulo.Text);
-
-                }
-
-
 
                 Fasor primerFasor = new Fasor(amplitud, pulsacion, comboBoxFuncion.Text, angulo);
                 labelPrimerFasor.Text = "Su primer Fasor es: " + amplitud + " " + comboBoxFuncion.Text + "(" + pulsacion + "t + ( " + angulo + "))";
 
                 double segAmplitud = double.Parse(textBoxAmplitud2.Text);
                 double segPulsacion = 0;
-
+                
+                
                 if (textBoxPulsacion2.Text.Contains("PI") || textBoxPulsacion2.Text.Contains("pi"))
                 {
                     textBoxPulsacion2.Text = textBoxPulsacion2.Text.Replace("PI", "1");
                     textBoxPulsacion2.Text = textBoxPulsacion2.Text.Replace("pi", "1");
                     segPulsacion = double.Parse(textBoxPulsacion2.Text);
                     segPulsacion *= Math.PI;
-
-                }
-                else
-                {
-                    segPulsacion = double.Parse(textBoxPulsacion2.Text);
-
-                }
-
+                } 
 
                 double segAngulo = 0; // double.Parse(textBoxAngulo2.Text);
 
@@ -251,25 +263,25 @@ namespace superioratr
                     segAngulo *= Math.PI;
 
                 }
-                else
-                {
 
+                if (VerificarCampos2()) { 
+
+                    pulsacion = double.Parse(textBoxPulsacion.Text);
+                    angulo = double.Parse(textBoxAngulo.Text);
+                    segPulsacion = double.Parse(textBoxPulsacion2.Text);
                     segAngulo = double.Parse(textBoxAngulo2.Text);
-
+                    return;
                 }
-
-               
-
 
 
                 Fasor segundoFasor = new Fasor(segAmplitud, segPulsacion, comboBoxFuncion2.Text, segAngulo);
-                labelSegundoFasor.Text = "Su segundo Fasor es: " + segAmplitud + " " + comboBoxFuncion2.Text + "(" + segPulsacion + "t + ( " + segAngulo + "))";
+                labelSegundoFasor.Text = "Su segundo Fasor es: " + segAmplitud + " " + comboBoxFuncion2.Text + "(" + segPulsacion + "t + ( " + segAngulo + ") )";
 
                 primerFasor.sumarFasores(segundoFasor);
                 primerFasor.complejoFinal.CorregirAngulos();
                 string modulo = primerFasor.complejoFinal.modulo.ToString();
                 string anguloFinal = primerFasor.complejoFinal.angulo.ToString();
-                labelResultado.Text = "Resultado: " +  modulo + " cos(" + primerFasor.pulsacion + "t + ( " + anguloFinal + " ))";
+                labelResultado.Text = "Resultado: " +  modulo + " cos(" + primerFasor.pulsacion + "t + ( " + anguloFinal + " ) )";
 
             }
         }
@@ -310,6 +322,24 @@ namespace superioratr
             return true;
         }
 
+        private bool VerificarCampos2()
+        {
+            string error = "";
+            double x;
+            if (!double.TryParse(textBoxPulsacion.Text, out x)) { error += "El campo 'Pulsación' debe ser numérico\n"; }
+            if (!double.TryParse(textBoxAngulo.Text, out x)) { error += "El campo 'Ángulo' debe ser numérico\n"; }
+            if (!double.TryParse(textBoxPulsacion2.Text, out x)) { error += "El campo 'Pulsación' debe ser numérico\n"; }
+            if (!double.TryParse(textBoxAngulo2.Text, out x)) { error += "El campo 'Ángulo' debe ser numérico\n"; }
+            if (error != "")
+            {
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
+            return true;
+        }
+
+
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -346,6 +376,16 @@ namespace superioratr
         }
 
         private void tabSumaFasores_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
         {
 
         }
