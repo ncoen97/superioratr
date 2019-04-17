@@ -220,7 +220,13 @@ namespace superioratr
                     textBoxPulsacion.Text = textBoxPulsacion.Text.Replace("pi", "1");
                     pulsacion = double.Parse(textBoxPulsacion.Text);
                     pulsacion *= Math.PI;
+                    textBoxPulsacion.Text = pulsacion.ToString();
 
+                }
+                else
+                {
+
+                    pulsacion = double.Parse(textBoxPulsacion.Text);
                 }
 
                 double angulo = 0; //double.Parse(textBoxAngulo.Text); ;
@@ -235,7 +241,25 @@ namespace superioratr
                     angulo = double.Parse(v.ToString());
 
                     angulo *= Math.PI;
+                    textBoxAngulo.Text = angulo.ToString();
 
+                }
+                else if (textBoxAngulo.Text.Contains("PI") || textBoxAngulo.Text.Contains("pi"))
+                {
+                    textBoxAngulo.Text = textBoxAngulo.Text.Replace("PI", "1");
+                    textBoxAngulo.Text = textBoxAngulo.Text.Replace("pi", "1");
+
+                    DataTable dt = new DataTable();
+                    var v = dt.Compute(textBoxAngulo.Text, "");
+                    angulo = double.Parse(v.ToString());
+
+                    angulo *= Math.PI;
+                    textBoxAngulo.Text = angulo.ToString();
+
+                }
+                else {
+                  
+                    angulo = double.Parse(textBoxAngulo.Text);
                 }
 
                 Fasor primerFasor = new Fasor(amplitud, pulsacion, comboBoxFuncion.Text, angulo);
@@ -243,15 +267,20 @@ namespace superioratr
 
                 double segAmplitud = double.Parse(textBoxAmplitud2.Text);
                 double segPulsacion = 0;
-                
-                
+
+
                 if (textBoxPulsacion2.Text.Contains("PI") || textBoxPulsacion2.Text.Contains("pi"))
                 {
                     textBoxPulsacion2.Text = textBoxPulsacion2.Text.Replace("PI", "1");
                     textBoxPulsacion2.Text = textBoxPulsacion2.Text.Replace("pi", "1");
                     segPulsacion = double.Parse(textBoxPulsacion2.Text);
                     segPulsacion *= Math.PI;
-                } 
+                    textBoxPulsacion2.Text = segPulsacion.ToString();
+                }
+                else
+                {
+                    segPulsacion = double.Parse(textBoxPulsacion2.Text);
+                }
 
                 double segAngulo = 0; // double.Parse(textBoxAngulo2.Text);
 
@@ -264,6 +293,7 @@ namespace superioratr
                     var v = dt.Compute(textBoxAngulo2.Text,"");
                     segAngulo = double.Parse(v.ToString());
                     segAngulo *= Math.PI;
+                    textBoxAngulo2.Text = segAngulo.ToString();
 
                 }
 
@@ -273,7 +303,7 @@ namespace superioratr
                     angulo = double.Parse(textBoxAngulo.Text);
                     segPulsacion = double.Parse(textBoxPulsacion2.Text);
                     segAngulo = double.Parse(textBoxAngulo2.Text);
-                    return;
+                    
                 }
 
 
@@ -331,8 +361,8 @@ namespace superioratr
             double x;
             if (!double.TryParse(textBoxPulsacion.Text, out x)) { error += "El campo 'Pulsación' debe ser numérico\n"; }
             if (!double.TryParse(textBoxAngulo.Text, out x)) { error += "El campo 'Ángulo' debe ser numérico\n"; }
-            if (!double.TryParse(textBoxPulsacion2.Text, out x)) { error += "El campo 'Pulsación' debe ser numérico\n"; }
-            if (!double.TryParse(textBoxAngulo2.Text, out x)) { error += "El campo 'Ángulo' debe ser numérico\n"; }
+            if (!double.TryParse(textBoxPulsacion2.Text, out x)) { error += "El campo 'Pulsación 2' debe ser numérico\n"; }
+            if (!double.TryParse(textBoxAngulo2.Text, out x)) { error += "El campo 'Ángulo 2' debe ser numérico\n"; }
             if (error != "")
             {
                 MessageBox.Show(error, "Error", MessageBoxButtons.OK);

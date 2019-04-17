@@ -27,3 +27,4 @@ C:\Users\Saku\Documents\GitHub\superioratr\superioratr\superioratr\obj\Debug\sup
 C:\Users\Saku\Documents\GitHub\superioratr\superioratr\superioratr\obj\Debug\superioratr.csproj.CoreCompileInputs.cache
 C:\Users\Saku\Documents\GitHub\superioratr\superioratr\superioratr\obj\Debug\superioratr.exe
 C:\Users\Saku\Documents\GitHub\superioratr\superioratr\superioratr\obj\Debug\superioratr.pdb
+C:\Users\Saku\Documents\GitHub\superioratr\superioratr\superioratr\obj\Debug\superioratr.csprojAssemblyReference.cache
