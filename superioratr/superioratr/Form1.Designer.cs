@@ -90,6 +90,7 @@
             this.textBoxAmplitud = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelRaizOriginal = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabInicio.SuspendLayout();
             this.tabOperacionesBasicas.SuspendLayout();
@@ -375,6 +376,7 @@
             // 
             // tabOperacionesAvanzadas
             // 
+            this.tabOperacionesAvanzadas.Controls.Add(this.labelRaizOriginal);
             this.tabOperacionesAvanzadas.Controls.Add(this.label14);
             this.tabOperacionesAvanzadas.Controls.Add(this.listView1);
             this.tabOperacionesAvanzadas.Controls.Add(this.labelResultPolar);
@@ -400,7 +402,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(53, 33);
+            this.label14.Location = new System.Drawing.Point(130, 62);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(249, 25);
             this.label14.TabIndex = 11;
@@ -423,7 +425,7 @@
             // labelResultPolar
             // 
             this.labelResultPolar.AutoSize = true;
-            this.labelResultPolar.Location = new System.Drawing.Point(232, 264);
+            this.labelResultPolar.Location = new System.Drawing.Point(309, 332);
             this.labelResultPolar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelResultPolar.Name = "labelResultPolar";
             this.labelResultPolar.Size = new System.Drawing.Size(0, 17);
@@ -432,7 +434,7 @@
             // labelResultBinomial
             // 
             this.labelResultBinomial.AutoSize = true;
-            this.labelResultBinomial.Location = new System.Drawing.Point(232, 230);
+            this.labelResultBinomial.Location = new System.Drawing.Point(309, 298);
             this.labelResultBinomial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelResultBinomial.Name = "labelResultBinomial";
             this.labelResultBinomial.Size = new System.Drawing.Size(0, 17);
@@ -441,7 +443,7 @@
             // labelInfoResultPolar
             // 
             this.labelInfoResultPolar.AutoSize = true;
-            this.labelInfoResultPolar.Location = new System.Drawing.Point(55, 264);
+            this.labelInfoResultPolar.Location = new System.Drawing.Point(132, 332);
             this.labelInfoResultPolar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelInfoResultPolar.Name = "labelInfoResultPolar";
             this.labelInfoResultPolar.Size = new System.Drawing.Size(133, 17);
@@ -451,7 +453,7 @@
             // labelInfoResultBinomial
             // 
             this.labelInfoResultBinomial.AutoSize = true;
-            this.labelInfoResultBinomial.Location = new System.Drawing.Point(55, 230);
+            this.labelInfoResultBinomial.Location = new System.Drawing.Point(132, 298);
             this.labelInfoResultBinomial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelInfoResultBinomial.Name = "labelInfoResultBinomial";
             this.labelInfoResultBinomial.Size = new System.Drawing.Size(153, 17);
@@ -461,7 +463,7 @@
             // labelFactor
             // 
             this.labelFactor.AutoSize = true;
-            this.labelFactor.Location = new System.Drawing.Point(55, 172);
+            this.labelFactor.Location = new System.Drawing.Point(132, 201);
             this.labelFactor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFactor.Name = "labelFactor";
             this.labelFactor.Size = new System.Drawing.Size(52, 17);
@@ -471,7 +473,7 @@
             // labelComplejo
             // 
             this.labelComplejo.AutoSize = true;
-            this.labelComplejo.Location = new System.Drawing.Point(55, 139);
+            this.labelComplejo.Location = new System.Drawing.Point(132, 168);
             this.labelComplejo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelComplejo.Name = "labelComplejo";
             this.labelComplejo.Size = new System.Drawing.Size(70, 17);
@@ -480,7 +482,7 @@
             // 
             // buttonRadicacion
             // 
-            this.buttonRadicacion.Location = new System.Drawing.Point(384, 169);
+            this.buttonRadicacion.Location = new System.Drawing.Point(413, 162);
             this.buttonRadicacion.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRadicacion.Name = "buttonRadicacion";
             this.buttonRadicacion.Size = new System.Drawing.Size(137, 28);
@@ -491,7 +493,7 @@
             // 
             // buttonPotencia
             // 
-            this.buttonPotencia.Location = new System.Drawing.Point(384, 136);
+            this.buttonPotencia.Location = new System.Drawing.Point(135, 250);
             this.buttonPotencia.Margin = new System.Windows.Forms.Padding(4);
             this.buttonPotencia.Name = "buttonPotencia";
             this.buttonPotencia.Size = new System.Drawing.Size(137, 28);
@@ -502,7 +504,7 @@
             // 
             // textBoxFactor
             // 
-            this.textBoxFactor.Location = new System.Drawing.Point(134, 169);
+            this.textBoxFactor.Location = new System.Drawing.Point(211, 198);
             this.textBoxFactor.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxFactor.Name = "textBoxFactor";
             this.textBoxFactor.Size = new System.Drawing.Size(132, 22);
@@ -510,7 +512,7 @@
             // 
             // textBoxComplejo
             // 
-            this.textBoxComplejo.Location = new System.Drawing.Point(134, 136);
+            this.textBoxComplejo.Location = new System.Drawing.Point(211, 165);
             this.textBoxComplejo.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxComplejo.Name = "textBoxComplejo";
             this.textBoxComplejo.Size = new System.Drawing.Size(132, 22);
@@ -787,6 +789,15 @@
             this.label1.Text = "Amplitud:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // labelRaizOriginal
+            // 
+            this.labelRaizOriginal.AutoSize = true;
+            this.labelRaizOriginal.Location = new System.Drawing.Point(410, 213);
+            this.labelRaizOriginal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelRaizOriginal.Name = "labelRaizOriginal";
+            this.labelRaizOriginal.Size = new System.Drawing.Size(0, 17);
+            this.labelRaizOriginal.TabIndex = 12;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -878,6 +889,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label labelRaizOriginal;
     }
 }
 

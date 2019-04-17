@@ -256,15 +256,16 @@ namespace superioratr
         }
         public Complejo[] Radicacion(Int32 factor)
         {
-            Complejo[] resultados = new Complejo[factor];
-
+            Complejo[] raices = new Complejo[factor];
+            double a;
             for (int i = 0; i < factor; i++)
             {
-                resultados[i] = new Complejo(Math.Pow(modulo, 1 / factor), (angulo + 2 * i * Math.PI) / factor, "Polar");
-                resultados[i].CorregirAngulos();
+                a = ((angulo + 2 * i * Math.PI) / factor) *360/2 /Math.PI ; // angulo en grados
+                raices[i] = new Complejo(Math.Pow(modulo, 1 / factor), a , "Binomial");
+                raices[i].CorregirAngulos();
             }
 
-            return resultados;
+            return raices;
         }
     }
 }

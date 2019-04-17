@@ -153,7 +153,7 @@ namespace superioratr
             Complejo resultado = complejo1.Cociente(complejo2);
             labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
             labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
-        }
+        } 
 
         private void ButtonPotencia_Click(object sender, EventArgs e)
         {
@@ -168,16 +168,19 @@ namespace superioratr
         {
             Complejo complejo = new Complejo(textBoxComplejo.Text);
             Int32 factor = Convert.ToInt32(textBoxFactor.Text);
-            Complejo[] resultados = complejo.Radicacion(factor);
-            labelResultPolar.Text = "modulo: " + Math.Abs(resultados[0].modulo).ToString() + "    angulo: " + resultados[0].angulo.ToString() + "+2.k.pi/" + factor;
+            Complejo[] raices = complejo.Radicacion(factor);
+
+            labelRaizOriginal.Text = "Fórmula: " + raices[0].angulo.ToString() + "+2.K.pi/" + factor;
 			//ListViewItem[] items = new ListViewItem[factor];
 			listView1.Items.Clear();
-			for (int i = 0; i < factor; i++)
+            int i = 0;
+			foreach (Complejo c in raices)
             {
-                ListViewItem item = new ListViewItem("W" + i.ToString());
-                item.SubItems.Add("Hola");
+                ListViewItem item = new ListViewItem("W"+i);
+                item.SubItems.Add(c.parteImaginaria.ToString());
 				listView1.Items.Add(item);
-				//items[i] = item;
+                //items[i] = item;
+                i++;
 			}
 
             //listView1.Items.AddRange(items);
