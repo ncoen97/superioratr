@@ -55,7 +55,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabOperacionesAvanzadas = new System.Windows.Forms.TabPage();
-            this.labelRaizOriginal = new System.Windows.Forms.Label();
+            this.labelAngulo = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.textBoxFactor = new System.Windows.Forms.TextBox();
@@ -83,7 +83,6 @@
             this.textBoxNum1 = new System.Windows.Forms.TextBox();
             this.tabTransformaciones = new System.Windows.Forms.TabPage();
             this.label15 = new System.Windows.Forms.Label();
-            this.labelFormatoIncorrecto = new System.Windows.Forms.Label();
             this.labelTitulo = new System.Windows.Forms.Label();
             this.labelTransformar = new System.Windows.Forms.Label();
             this.buttonTransformar = new System.Windows.Forms.Button();
@@ -97,6 +96,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.labelPrimitivas = new System.Windows.Forms.Label();
             this.tabSumaFasores.SuspendLayout();
             this.tabOperacionesAvanzadas.SuspendLayout();
             this.tabOperacionesBasicas.SuspendLayout();
@@ -394,7 +395,9 @@
             // tabOperacionesAvanzadas
             // 
             this.tabOperacionesAvanzadas.BackColor = System.Drawing.SystemColors.Window;
-            this.tabOperacionesAvanzadas.Controls.Add(this.labelRaizOriginal);
+            this.tabOperacionesAvanzadas.Controls.Add(this.labelPrimitivas);
+            this.tabOperacionesAvanzadas.Controls.Add(this.label20);
+            this.tabOperacionesAvanzadas.Controls.Add(this.labelAngulo);
             this.tabOperacionesAvanzadas.Controls.Add(this.label14);
             this.tabOperacionesAvanzadas.Controls.Add(this.listView1);
             this.tabOperacionesAvanzadas.Controls.Add(this.textBoxFactor);
@@ -415,14 +418,14 @@
             this.tabOperacionesAvanzadas.TabIndex = 3;
             this.tabOperacionesAvanzadas.Text = "OA";
             // 
-            // labelRaizOriginal
+            // labelAngulo
             // 
-            this.labelRaizOriginal.AutoSize = true;
-            this.labelRaizOriginal.Location = new System.Drawing.Point(405, 270);
-            this.labelRaizOriginal.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.labelRaizOriginal.Name = "labelRaizOriginal";
-            this.labelRaizOriginal.Size = new System.Drawing.Size(0, 17);
-            this.labelRaizOriginal.TabIndex = 12;
+            this.labelAngulo.AutoSize = true;
+            this.labelAngulo.Location = new System.Drawing.Point(405, 270);
+            this.labelAngulo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelAngulo.Name = "labelAngulo";
+            this.labelAngulo.Size = new System.Drawing.Size(0, 17);
+            this.labelAngulo.TabIndex = 12;
             // 
             // label14
             // 
@@ -575,10 +578,10 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(334, 134);
             this.label16.TabIndex = 10;
-            this.label16.Text = "Ingresa un número complejo por caja de texto  en forma binomial ( parte real , pa" +
-    "rte imaginaria ) o polar [ módulo , ángulo ] y seleccioná la operación que queré" +
-    "s realizar";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label16.Text = "Ingresá dos números complejos en forma:\r\nbinomial ( parte real , parte imaginaria" +
+    " )\r\npolar [ módulo ; ángulo ]\r\nLuego seleccioná la operación que querés realizar" +
+    "";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // label8
@@ -695,7 +698,6 @@
             // 
             this.tabTransformaciones.BackColor = System.Drawing.SystemColors.Window;
             this.tabTransformaciones.Controls.Add(this.label15);
-            this.tabTransformaciones.Controls.Add(this.labelFormatoIncorrecto);
             this.tabTransformaciones.Controls.Add(this.labelTitulo);
             this.tabTransformaciones.Controls.Add(this.labelTransformar);
             this.tabTransformaciones.Controls.Add(this.buttonTransformar);
@@ -718,22 +720,10 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(304, 121);
             this.label15.TabIndex = 8;
-            this.label15.Text = "Ingresa un número complejo en forma binomial ( parte real , parte imaginaria ) o " +
-    "polar [ módulo ; ángulo ]";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label15.Text = "Ingresa un número complejo en forma:\r\nbinomial ( parte real , parte imaginaria )\r" +
+    "\npolar [ módulo ; ángulo ]";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label15.Click += new System.EventHandler(this.label15_Click);
-            // 
-            // labelFormatoIncorrecto
-            // 
-            this.labelFormatoIncorrecto.AutoSize = true;
-            this.labelFormatoIncorrecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.labelFormatoIncorrecto.ForeColor = System.Drawing.Color.Red;
-            this.labelFormatoIncorrecto.Location = new System.Drawing.Point(873, 179);
-            this.labelFormatoIncorrecto.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.labelFormatoIncorrecto.Name = "labelFormatoIncorrecto";
-            this.labelFormatoIncorrecto.Size = new System.Drawing.Size(127, 17);
-            this.labelFormatoIncorrecto.TabIndex = 7;
-            this.labelFormatoIncorrecto.Text = "Formato Incorrecto";
             // 
             // labelTitulo
             // 
@@ -886,6 +876,28 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "TRABAJO PRÁCTICO DE MATEMÁTICA SUPERIOR 2019";
             // 
+            // label20
+            // 
+            this.label20.Location = new System.Drawing.Point(105, 75);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(334, 134);
+            this.label20.TabIndex = 13;
+            this.label20.Text = "Ingresá un número complejo en forma:\r\nbinomial ( parte real , parte imaginaria )\r" +
+    "\npolar [ módulo ; ángulo ]\r\nIngresá un factor\r\nLuego seleccioná la operación que" +
+    " querés realizar";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelPrimitivas
+            // 
+            this.labelPrimitivas.AutoSize = true;
+            this.labelPrimitivas.Location = new System.Drawing.Point(89, 313);
+            this.labelPrimitivas.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelPrimitivas.MaximumSize = new System.Drawing.Size(200, 0);
+            this.labelPrimitivas.Name = "labelPrimitivas";
+            this.labelPrimitivas.Size = new System.Drawing.Size(0, 17);
+            this.labelPrimitivas.TabIndex = 14;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -946,7 +958,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabOperacionesAvanzadas;
-        private System.Windows.Forms.Label labelRaizOriginal;
+        private System.Windows.Forms.Label labelAngulo;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.TextBox textBoxFactor;
@@ -974,7 +986,6 @@
         private System.Windows.Forms.TextBox textBoxNum1;
         private System.Windows.Forms.TabPage tabTransformaciones;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label labelFormatoIncorrecto;
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.Label labelTransformar;
         private System.Windows.Forms.Button buttonTransformar;
@@ -988,6 +999,8 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label labelPrimitivas;
     }
 }
 

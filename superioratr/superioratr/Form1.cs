@@ -14,14 +14,13 @@ namespace superioratr
         public Inicio()
         {
             InitializeComponent();
-			listView1.Columns.Add("Raiz", 100);
+            listView1.Columns.Add("Raiz", 100);
             listView1.Columns.Add("Modulo", 100);
             listView1.Columns.Add("Angulo", 100);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            labelFormatoIncorrecto.Hide();
         }
 
         private void BotonHolaMundo_Click(object sender, EventArgs e)
@@ -36,34 +35,35 @@ namespace superioratr
 
         private void buttonTipo_Click(object sender, EventArgs e)
         {
-            if (NOEstaVacio()) {
-
-            Complejo complejo = new Complejo(textBoxTransformacion.Text);
-            if (complejo.tipoOriginal == "Binomial")
+            if (string.IsNullOrWhiteSpace(textBoxTransformacion.Text))
             {
-                labelFormatoIncorrecto.Hide();
-                labelComplejoEnForma.Text = "Complejo en forma: " + complejo.tipoOriginal;
-                labelTransformado.Text = complejo.parteReal.ToString() + " + " + complejo.parteImaginaria.ToString() + "j";
-                
-            }
-            else if (complejo.tipoOriginal == "Polar")
-            {
-                labelFormatoIncorrecto.Hide();
-                labelComplejoEnForma.Text = "Complejo en forma: " + complejo.tipoOriginal;
-                labelTransformado.Text = "modulo: " + Math.Abs(complejo.modulo).ToString() + "    angulo: " + complejo.angulo.ToString();
-               
+                MessageBox.Show("No hay complejo para transformar", "Error", MessageBoxButtons.OK);
             }
             else
             {
-                textBoxTransformacion.Text = "";
-                labelFormatoIncorrecto.Show();
-                labelComplejoEnForma.Text = "";
-                labelTransformado.Text = "";
-                labelTransformar.Text = "";
-               
+                Complejo complejo = new Complejo(textBoxTransformacion.Text);
+                if (complejo.tipoOriginal == "Binomial")
+                {
+                    labelComplejoEnForma.Text = "Complejo en forma: " + complejo.tipoOriginal;
+                    labelTransformado.Text = complejo.parteReal.ToString() + " + " + complejo.parteImaginaria.ToString() + "j";
+
+                }
+                else if (complejo.tipoOriginal == "Polar")
+                {
+                    labelComplejoEnForma.Text = "Complejo en forma: " + complejo.tipoOriginal;
+                    labelTransformado.Text = "modulo: " + Math.Abs(complejo.modulo).ToString() + "    angulo: " + complejo.angulo.ToString();
+
+                }
+                else
+                {
+                    MessageBox.Show("Error ingresando los datos", "Error", MessageBoxButtons.OK);
+                    labelComplejoEnForma.Text = "";
+                    labelTransformado.Text = "";
+                    labelTransformar.Text = "";
+
+                }
             }
-            
-            }
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -73,10 +73,21 @@ namespace superioratr
 
         private void buttonTransformar_Click(object sender, EventArgs e)
         {
-          if(NOEstaVacio())
+            if (string.IsNullOrWhiteSpace(textBoxTransformacion.Text))
+            {
+                MessageBox.Show("No hay complejo para transformar", "Error", MessageBoxButtons.OK);
+            }
+            else
             {
                 Complejo complejo = new Complejo(textBoxTransformacion.Text);
-                labelTransformar.Text = complejo.MostrarTransformado(complejo);
+                if (complejo.tipoOriginal == "Binomial" || complejo.tipoOriginal == "Polar")
+                {
+                    labelTransformar.Text = complejo.MostrarTransformado(complejo);
+                }
+                else
+                {
+                    MessageBox.Show("Error ingresando los datos", "Error", MessageBoxButtons.OK);
+                }
             }
         }
 
@@ -84,7 +95,7 @@ namespace superioratr
         {
             string error = "";
             if (string.IsNullOrEmpty(textBoxTransformacion.Text)) { error += "No hay complejo para transformar"; }
-            
+
             if (error != "")
             {
                 MessageBox.Show(error, "Error", MessageBoxButtons.OK);
@@ -117,109 +128,193 @@ namespace superioratr
 
         private void buttonSuma_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxNum1.Text) || string.IsNullOrEmpty(textBoxNum2.Text))               
+            if (string.IsNullOrWhiteSpace(textBoxNum1.Text) || string.IsNullOrWhiteSpace(textBoxNum2.Text))
             {
-                MessageBox.Show("No hay complejo para transformar", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Falta un complejo para realizar la operacion", "Error", MessageBoxButtons.OK);
             }
             else
             {
                 Complejo complejo1 = new Complejo(textBoxNum1.Text);
                 Complejo complejo2 = new Complejo(textBoxNum2.Text);
-                Complejo resultado = complejo1.Suma(complejo2);
-                labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
-                labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+                if ((complejo1.tipoOriginal == "Binomial" || complejo1.tipoOriginal == "Polar") && (complejo2.tipoOriginal == "Binomial" || complejo2.tipoOriginal == "Polar"))
+                {
+                    Complejo resultado = complejo1.Suma(complejo2);
+                    resultado.modulo = Math.Round(resultado.modulo, 4);
+                    resultado.angulo = Math.Round(resultado.angulo, 4);
+                    labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
+                    labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Error ingresando los datos", "Error", MessageBoxButtons.OK);
+                }
             }
         }
 
 
         private void buttonResta_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxNum1.Text) || string.IsNullOrEmpty(textBoxNum2.Text))
+            if (string.IsNullOrWhiteSpace(textBoxNum1.Text) || string.IsNullOrWhiteSpace(textBoxNum2.Text))
             {
-                MessageBox.Show("No hay complejo para transformar", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Falta un complejo para realizar la operacion", "Error", MessageBoxButtons.OK);
             }
             else
             {
                 Complejo complejo1 = new Complejo(textBoxNum1.Text);
                 Complejo complejo2 = new Complejo(textBoxNum2.Text);
-                Complejo resultado = complejo1.Resta(complejo2);
-                labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
-                labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+                if ((complejo1.tipoOriginal == "Binomial" || complejo1.tipoOriginal == "Polar") && (complejo2.tipoOriginal == "Binomial" || complejo2.tipoOriginal == "Polar"))
+                {
+                    Complejo resultado = complejo1.Resta(complejo2);
+                    resultado.modulo = Math.Round(resultado.modulo, 4);
+                    resultado.angulo = Math.Round(resultado.angulo, 4);
+                    labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
+                    labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Error ingresando los datos", "Error", MessageBoxButtons.OK);
+                }
             }
         }
 
         private void buttonMultiplicacion_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxNum1.Text) || string.IsNullOrEmpty(textBoxNum2.Text))
+            if (string.IsNullOrWhiteSpace(textBoxNum1.Text) || string.IsNullOrWhiteSpace(textBoxNum2.Text))
             {
-                MessageBox.Show("No hay complejo para transformar", "Error", MessageBoxButtons.OK);
-            }
-            else
-            {
-            Complejo complejo1 = new Complejo(textBoxNum1.Text);
-            Complejo complejo2 = new Complejo(textBoxNum2.Text);
-            Complejo resultado = complejo1.Multiplicacion(complejo2);
-            labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
-            labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
-            }
-        }
-
-        private void buttonCociente_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBoxNum1.Text) || string.IsNullOrEmpty(textBoxNum2.Text))
-            {
-                MessageBox.Show("No hay complejo para transformar", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Falta un complejo para realizar la operacion", "Error", MessageBoxButtons.OK);
             }
             else
             {
                 Complejo complejo1 = new Complejo(textBoxNum1.Text);
                 Complejo complejo2 = new Complejo(textBoxNum2.Text);
-                Complejo resultado = complejo1.Cociente(complejo2);
-                labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
-                labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+                if ((complejo1.tipoOriginal == "Binomial" || complejo1.tipoOriginal == "Polar") && (complejo2.tipoOriginal == "Binomial" || complejo2.tipoOriginal == "Polar"))
+                {
+                    Complejo resultado = complejo1.Multiplicacion(complejo2);
+                    resultado.modulo = Math.Round(resultado.modulo, 4);
+                    resultado.angulo = Math.Round(resultado.angulo, 4);
+                    labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
+                    labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Error ingresando los datos", "Error", MessageBoxButtons.OK);
+                }
             }
-        } 
+        }
 
-        private void ButtonPotencia_Click(object sender, EventArgs e)
+        private void buttonCociente_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxNum1.Text) || string.IsNullOrEmpty(textBoxNum2.Text))
+            if (string.IsNullOrWhiteSpace(textBoxNum1.Text) || string.IsNullOrWhiteSpace(textBoxNum2.Text))
             {
-                MessageBox.Show("No hay complejo para transformar", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Falta un complejo para realizar la operacion", "Error", MessageBoxButtons.OK);
             }
             else
             {
-            Complejo complejo = new Complejo(textBoxComplejo.Text);
-            Int32 potencia = Convert.ToInt32(textBoxFactor.Text);
-            Complejo resultado = complejo.Potencia(potencia);
-            labelResultBinomial.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
-            labelResultPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+                Complejo complejo1 = new Complejo(textBoxNum1.Text);
+                Complejo complejo2 = new Complejo(textBoxNum2.Text);
+                if ((complejo1.tipoOriginal == "Binomial" || complejo1.tipoOriginal == "Polar") && (complejo2.tipoOriginal == "Binomial" || complejo2.tipoOriginal == "Polar"))
+                {
+                    Complejo resultado = complejo1.Cociente(complejo2);
+                    resultado.modulo = Math.Round(resultado.modulo, 4);
+                    resultado.angulo = Math.Round(resultado.angulo, 4);
+                    labelResultadoBinomica.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
+                    labelResultadoPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Error ingresando los datos", "Error", MessageBoxButtons.OK);
+                }
+            }
+        }
+
+        private void ButtonPotencia_Click(object sender, EventArgs e)
+        {
+            labelPrimitivas.Hide();
+            labelAngulo.Hide();
+            listView1.Items.Clear();
+            if (string.IsNullOrWhiteSpace(textBoxComplejo.Text) || string.IsNullOrWhiteSpace(textBoxFactor.Text))
+            {
+                MessageBox.Show("Fata complejo o factor", "Error", MessageBoxButtons.OK);
+            }
+            else
+            {
+                Complejo complejo = new Complejo(textBoxComplejo.Text);
+                Int32 potencia = new Int32();
+                if ((complejo.tipoOriginal == "Binomial" || complejo.tipoOriginal == "Polar") && Int32.TryParse(textBoxFactor.Text, out potencia))
+                {
+                    Complejo resultado = complejo.Potencia(potencia);
+                    resultado.modulo = Math.Round(resultado.modulo, 4);
+                    resultado.angulo = Math.Round(resultado.angulo, 4);
+                    labelResultBinomial.Text = resultado.parteReal.ToString() + " + " + resultado.parteImaginaria.ToString() + "j";
+                    labelResultPolar.Text = "modulo: " + Math.Abs(resultado.modulo).ToString() + "    angulo: " + resultado.angulo.ToString();
+                    labelResultBinomial.Show();
+                    labelResultPolar.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Error ingresando los datos", "Error", MessageBoxButtons.OK);
+                }
             }
         }
 
         private void ButtonRadicacion_Click(object sender, EventArgs e)
         {
-            Complejo complejo = new Complejo(textBoxComplejo.Text);
-            Int32 factor = Convert.ToInt32(textBoxFactor.Text);
-            Complejo[] raices = complejo.Radicacion(factor);
-
-            labelRaizOriginal.Text = "Fórmula: " + raices[0].angulo.ToString() + "+2.K.pi/" + factor;
-			//ListViewItem[] items = new ListViewItem[factor];
-			listView1.Items.Clear();
-            int i = 0;
-			foreach (Complejo c in raices)
+            labelResultBinomial.Hide();
+            labelResultPolar.Hide();
+            if (string.IsNullOrWhiteSpace(textBoxComplejo.Text) || string.IsNullOrWhiteSpace(textBoxFactor.Text))
             {
-                ListViewItem item = new ListViewItem("W"+i);
-                item.SubItems.Add(c.modulo.ToString());
-                item.SubItems.Add(c.angulo.ToString());
-                listView1.Items.Add(item);
-                //items[i] = item;
-                i++;
-			}
+                MessageBox.Show("Fata complejo o factor", "Error", MessageBoxButtons.OK);
+            }
+            else
+            {
+                Complejo complejo = new Complejo(textBoxComplejo.Text);
+                Int32 factor = new Int32();
+                if ((complejo.tipoOriginal == "Binomial" || complejo.tipoOriginal == "Polar") && Int32.TryParse(textBoxFactor.Text, out factor))
+                {
+                    Complejo[] raices = complejo.Radicacion(factor);
+                    foreach (Complejo c in raices)
+                    {
+                        c.angulo = Math.Round(c.angulo, 4);
+                        c.modulo = Math.Round(c.modulo, 4);
+                    }
+                    labelAngulo.Text = "Fórmula: " + raices[0].angulo.ToString() + "+2.K.pi/" + factor;
+                    //ListViewItem[] items = new ListViewItem[factor];
+                    listView1.Items.Clear();
+                    int i = 0;
+                    foreach (Complejo c in raices)
+                    {
+                        ListViewItem item = new ListViewItem("W" + i);
+                        item.SubItems.Add(c.modulo.ToString());
+                        item.SubItems.Add(c.angulo.ToString());
+                        listView1.Items.Add(item);
+                        //items[i] = item;
+                        i++;
+                    }
+                    if (complejo.modulo == 1 && complejo.angulo==0) {
+                        string primitivas;
+                        primitivas = "Raices Primitivas:\n";
+                        for (int j = 0; j < raices.Length; j++)
+                        {
+                            if (mcd(j, factor) == 1) {
+                                primitivas= primitivas + "W" + j.ToString() + ", ";
+                            }
+                        }
+                        labelPrimitivas.Text = primitivas.Substring(0,primitivas.Length-2);
+                        labelPrimitivas.Show();
+                        listView1.Refresh();
+                    }
+                    else
+                    {
+                        labelPrimitivas.Hide();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error ingresando los datos", "Error", MessageBoxButtons.OK);
+                }
 
-            //listView1.Items.AddRange(items);
-            listView1.Refresh();
-        } 
-
+            }
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -291,7 +386,7 @@ namespace superioratr
 
                 }
                 else {
-                  
+
                     angulo = double.Parse(textBoxAngulo.Text);
                 }
 
@@ -323,20 +418,20 @@ namespace superioratr
                     textBoxAngulo2.Text = textBoxAngulo2.Text.Replace("pi", "1");
 
                     DataTable dt = new DataTable();
-                    var v = dt.Compute(textBoxAngulo2.Text,"");
+                    var v = dt.Compute(textBoxAngulo2.Text, "");
                     segAngulo = double.Parse(v.ToString());
                     segAngulo *= Math.PI;
                     textBoxAngulo2.Text = segAngulo.ToString();
 
                 }
 
-                if (VerificarCampos2()) { 
+                if (VerificarCampos2()) {
 
                     pulsacion = double.Parse(textBoxPulsacion.Text);
                     angulo = double.Parse(textBoxAngulo.Text);
                     segPulsacion = double.Parse(textBoxPulsacion2.Text);
                     segAngulo = double.Parse(textBoxAngulo2.Text);
-                    
+
                 }
 
 
@@ -347,7 +442,7 @@ namespace superioratr
                 primerFasor.complejoFinal.CorregirAngulos();
                 string modulo = primerFasor.complejoFinal.modulo.ToString();
                 string anguloFinal = primerFasor.complejoFinal.angulo.ToString();
-                labelResultado.Text = "Resultado: " +  modulo + " cos(" + primerFasor.pulsacion + "t + ( " + anguloFinal + " ) )";
+                labelResultado.Text = "Resultado: " + modulo + " cos(" + primerFasor.pulsacion + "t + ( " + anguloFinal + " ) )";
 
             }
         }
@@ -361,17 +456,17 @@ namespace superioratr
         {
             string error = "";
             double x;
-            if (string.IsNullOrWhiteSpace(textBoxAmplitud.Text)) { error += "El campo 'Amplitud' debe estar completo\n"; } 
+            if (string.IsNullOrWhiteSpace(textBoxAmplitud.Text)) { error += "El campo 'Amplitud' debe estar completo\n"; }
             if (string.IsNullOrWhiteSpace(textBoxPulsacion.Text)) { error += "El campo 'Pulsación' debe estar completo\n"; }
             if (string.IsNullOrWhiteSpace(textBoxAngulo.Text)) { error += "El campo 'Ángulo' debe estar completo\n"; }
             if (!double.TryParse(textBoxAmplitud.Text, out x)) { error += "El campo 'Amplitud' debe ser numérico\n"; }
-           // if (!double.TryParse(textBoxPulsacion.Text, out x)) { error += "El campo 'Pulsación' debe ser numérico\n"; }
+            // if (!double.TryParse(textBoxPulsacion.Text, out x)) { error += "El campo 'Pulsación' debe ser numérico\n"; }
             //if (!double.TryParse(textBoxAngulo.Text, out x)) { error += "El campo 'Ángulo' debe ser numérico\n"; }
             if (string.IsNullOrWhiteSpace(comboBoxFuncion.Text)) { error += "El campo 'Funcion' debe estar completo\n"; }
 
             if (string.IsNullOrWhiteSpace(textBoxAmplitud2.Text)) { error += "El campo 'Amplitud' debe estar completo\n"; }
             if (string.IsNullOrWhiteSpace(textBoxPulsacion2.Text)) { error += "El campo 'Pulsación' debe estar completo\n"; }
-            if (string.IsNullOrWhiteSpace(textBoxAngulo2.Text)) {error += "El campo 'Ángulo' debe estar completo\n"; }
+            if (string.IsNullOrWhiteSpace(textBoxAngulo2.Text)) { error += "El campo 'Ángulo' debe estar completo\n"; }
             if (!double.TryParse(textBoxAmplitud2.Text, out x)) { error += "El campo 'Amplitud' debe ser numérico\n"; }
             //if (!double.TryParse(textBoxPulsacion2.Text, out x)) { error += "El campo 'Pulsación' debe ser numérico\n"; }
             //if (!double.TryParse(textBoxAngulo2.Text, out x)) { error += "El campo 'Ángulo' debe ser numérico\n"; }
@@ -455,5 +550,17 @@ namespace superioratr
         {
 
         }
+        private Int32 mcd(Int32 a, Int32 b)
+        {
+            while (a != 0 && b != 0)
+            {
+                if (a > b)
+                    a %= b;
+                else
+                    b %= a;
+            }
+
+            return a == 0 ? b : a;
+        }
     }
-    }
+ }

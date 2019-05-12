@@ -28,13 +28,3 @@ C:\Users\Saku\Documents\GitHub\superioratr\superioratr\superioratr\obj\Debug\sup
 C:\Users\Saku\Documents\GitHub\superioratr\superioratr\superioratr\obj\Debug\superioratr.exe
 C:\Users\Saku\Documents\GitHub\superioratr\superioratr\superioratr\obj\Debug\superioratr.pdb
 C:\Users\Saku\Documents\GitHub\superioratr\superioratr\superioratr\obj\Debug\superioratr.csprojAssemblyReference.cache
-C:\Users\User\Desktop\Matematica Superior\superioratr\superioratr\superioratr\bin\Debug\superioratr.exe.config
-C:\Users\User\Desktop\Matematica Superior\superioratr\superioratr\superioratr\bin\Debug\superioratr.exe
-C:\Users\User\Desktop\Matematica Superior\superioratr\superioratr\superioratr\bin\Debug\superioratr.pdb
-C:\Users\User\Desktop\Matematica Superior\superioratr\superioratr\superioratr\obj\Debug\superioratr.csprojResolveAssemblyReference.cache
-C:\Users\User\Desktop\Matematica Superior\superioratr\superioratr\superioratr\obj\Debug\superioratr.Inicio.resources
-C:\Users\User\Desktop\Matematica Superior\superioratr\superioratr\superioratr\obj\Debug\superioratr.Properties.Resources.resources
-C:\Users\User\Desktop\Matematica Superior\superioratr\superioratr\superioratr\obj\Debug\superioratr.csproj.GenerateResource.cache
-C:\Users\User\Desktop\Matematica Superior\superioratr\superioratr\superioratr\obj\Debug\superioratr.csproj.CoreCompileInputs.cache
-C:\Users\User\Desktop\Matematica Superior\superioratr\superioratr\superioratr\obj\Debug\superioratr.exe
-C:\Users\User\Desktop\Matematica Superior\superioratr\superioratr\superioratr\obj\Debug\superioratr.pdb
