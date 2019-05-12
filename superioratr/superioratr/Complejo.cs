@@ -258,11 +258,11 @@ namespace superioratr
         {
             Complejo[] raices = new Complejo[factor];
             double a;
+            double m = Math.Pow(modulo, ((double)(1) / factor));
             for (int i = 0; i < factor; i++)
             {
                 a = ((angulo + 2 * i * Math.PI) / factor) *360/2 /Math.PI ; // angulo en grados
-                raices[i] = new Complejo(Math.Pow(modulo, 1 / factor), a , "Binomial");
-                raices[i].CorregirAngulos();
+                raices[i] = new Complejo(m, a , "Polar");
             }
 
             return raices;

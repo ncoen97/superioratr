@@ -132,11 +132,11 @@
             this.tabSumaFasores.Controls.Add(this.button1);
             this.tabSumaFasores.Controls.Add(this.label2);
             this.tabSumaFasores.Controls.Add(this.label1);
-            this.tabSumaFasores.Location = new System.Drawing.Point(4, 37);
+            this.tabSumaFasores.Location = new System.Drawing.Point(4, 28);
             this.tabSumaFasores.Margin = new System.Windows.Forms.Padding(5);
             this.tabSumaFasores.Name = "tabSumaFasores";
             this.tabSumaFasores.Padding = new System.Windows.Forms.Padding(5);
-            this.tabSumaFasores.Size = new System.Drawing.Size(1286, 614);
+            this.tabSumaFasores.Size = new System.Drawing.Size(1286, 623);
             this.tabSumaFasores.TabIndex = 4;
             this.tabSumaFasores.Text = "SF";
             this.tabSumaFasores.Click += new System.EventHandler(this.tabSumaFasores_Click);
@@ -149,7 +149,7 @@
             this.label17.Location = new System.Drawing.Point(533, 37);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(243, 32);
+            this.label17.Size = new System.Drawing.Size(166, 24);
             this.label17.TabIndex = 35;
             this.label17.Text = "Suma de fasores";
             // 
@@ -170,7 +170,7 @@
             this.labelResultado.Location = new System.Drawing.Point(228, 524);
             this.labelResultado.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelResultado.Name = "labelResultado";
-            this.labelResultado.Size = new System.Drawing.Size(105, 25);
+            this.labelResultado.Size = new System.Drawing.Size(76, 17);
             this.labelResultado.TabIndex = 34;
             this.labelResultado.Text = "Resultado:";
             this.labelResultado.Click += new System.EventHandler(this.labelResultado_Click);
@@ -181,7 +181,7 @@
             this.labelSegundoFasor.Location = new System.Drawing.Point(781, 407);
             this.labelSegundoFasor.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelSegundoFasor.Name = "labelSegundoFasor";
-            this.labelSegundoFasor.Size = new System.Drawing.Size(172, 25);
+            this.labelSegundoFasor.Size = new System.Drawing.Size(124, 17);
             this.labelSegundoFasor.TabIndex = 33;
             this.labelSegundoFasor.Text = "Su segundo fasor:";
             this.labelSegundoFasor.Click += new System.EventHandler(this.labelSegundoFasor_Click);
@@ -191,7 +191,7 @@
             this.textBoxPulsacion2.Location = new System.Drawing.Point(873, 285);
             this.textBoxPulsacion2.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxPulsacion2.Name = "textBoxPulsacion2";
-            this.textBoxPulsacion2.Size = new System.Drawing.Size(164, 30);
+            this.textBoxPulsacion2.Size = new System.Drawing.Size(164, 23);
             this.textBoxPulsacion2.TabIndex = 7;
             // 
             // textBoxAngulo2
@@ -199,7 +199,7 @@
             this.textBoxAngulo2.Location = new System.Drawing.Point(873, 336);
             this.textBoxAngulo2.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxAngulo2.Name = "textBoxAngulo2";
-            this.textBoxAngulo2.Size = new System.Drawing.Size(164, 30);
+            this.textBoxAngulo2.Size = new System.Drawing.Size(164, 23);
             this.textBoxAngulo2.TabIndex = 8;
             // 
             // textBoxAmplitud2
@@ -207,7 +207,7 @@
             this.textBoxAmplitud2.Location = new System.Drawing.Point(873, 176);
             this.textBoxAmplitud2.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxAmplitud2.Name = "textBoxAmplitud2";
-            this.textBoxAmplitud2.Size = new System.Drawing.Size(164, 30);
+            this.textBoxAmplitud2.Size = new System.Drawing.Size(164, 23);
             this.textBoxAmplitud2.TabIndex = 5;
             // 
             // textBoxAngulo
@@ -215,7 +215,7 @@
             this.textBoxAngulo.Location = new System.Drawing.Point(327, 340);
             this.textBoxAngulo.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxAngulo.Name = "textBoxAngulo";
-            this.textBoxAngulo.Size = new System.Drawing.Size(164, 30);
+            this.textBoxAngulo.Size = new System.Drawing.Size(164, 23);
             this.textBoxAngulo.TabIndex = 4;
             // 
             // textBoxPulsacion
@@ -223,7 +223,7 @@
             this.textBoxPulsacion.Location = new System.Drawing.Point(327, 286);
             this.textBoxPulsacion.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxPulsacion.Name = "textBoxPulsacion";
-            this.textBoxPulsacion.Size = new System.Drawing.Size(164, 30);
+            this.textBoxPulsacion.Size = new System.Drawing.Size(164, 23);
             this.textBoxPulsacion.TabIndex = 3;
             // 
             // textBoxAmplitud
@@ -231,7 +231,7 @@
             this.textBoxAmplitud.Location = new System.Drawing.Point(327, 176);
             this.textBoxAmplitud.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxAmplitud.Name = "textBoxAmplitud";
-            this.textBoxAmplitud.Size = new System.Drawing.Size(164, 30);
+            this.textBoxAmplitud.Size = new System.Drawing.Size(164, 23);
             this.textBoxAmplitud.TabIndex = 1;
             // 
             // label13
@@ -240,7 +240,7 @@
             this.label13.Location = new System.Drawing.Point(781, 339);
             this.label13.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(80, 25);
+            this.label13.Size = new System.Drawing.Size(56, 17);
             this.label13.TabIndex = 30;
             this.label13.Text = "Ángulo:";
             // 
@@ -250,7 +250,7 @@
             this.label12.Location = new System.Drawing.Point(781, 285);
             this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(103, 25);
+            this.label12.Size = new System.Drawing.Size(73, 17);
             this.label12.TabIndex = 29;
             this.label12.Text = "Pulsación:";
             // 
@@ -258,14 +258,14 @@
             // 
             this.comboBoxFuncion2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFuncion2.FormattingEnabled = true;
-            this.comboBoxFuncion2.ItemHeight = 25;
+            this.comboBoxFuncion2.ItemHeight = 16;
             this.comboBoxFuncion2.Items.AddRange(new object[] {
             "coseno",
             "seno"});
             this.comboBoxFuncion2.Location = new System.Drawing.Point(1002, 228);
             this.comboBoxFuncion2.Margin = new System.Windows.Forms.Padding(5);
             this.comboBoxFuncion2.Name = "comboBoxFuncion2";
-            this.comboBoxFuncion2.Size = new System.Drawing.Size(199, 33);
+            this.comboBoxFuncion2.Size = new System.Drawing.Size(199, 24);
             this.comboBoxFuncion2.TabIndex = 6;
             // 
             // label11
@@ -274,7 +274,7 @@
             this.label11.Location = new System.Drawing.Point(781, 232);
             this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(223, 25);
+            this.label11.Size = new System.Drawing.Size(161, 17);
             this.label11.TabIndex = 27;
             this.label11.Text = "Función Trigonométrica:";
             // 
@@ -284,7 +284,7 @@
             this.label10.Location = new System.Drawing.Point(781, 179);
             this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(94, 25);
+            this.label10.Size = new System.Drawing.Size(66, 17);
             this.label10.TabIndex = 25;
             this.label10.Text = "Amplitud:";
             // 
@@ -296,7 +296,7 @@
             this.label9.Location = new System.Drawing.Point(781, 99);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(337, 29);
+            this.label9.Size = new System.Drawing.Size(229, 20);
             this.label9.TabIndex = 24;
             this.label9.Text = "Complete el segundo Fasor";
             // 
@@ -306,7 +306,7 @@
             this.labelPrimerFasor.Location = new System.Drawing.Point(228, 408);
             this.labelPrimerFasor.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelPrimerFasor.Name = "labelPrimerFasor";
-            this.labelPrimerFasor.Size = new System.Drawing.Size(150, 25);
+            this.labelPrimerFasor.Size = new System.Drawing.Size(109, 17);
             this.labelPrimerFasor.TabIndex = 23;
             this.labelPrimerFasor.Text = "Su primer fasor:";
             this.labelPrimerFasor.Click += new System.EventHandler(this.labelPrimerFasor_Click);
@@ -317,7 +317,7 @@
             this.label7.Location = new System.Drawing.Point(228, 340);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 25);
+            this.label7.Size = new System.Drawing.Size(56, 17);
             this.label7.TabIndex = 21;
             this.label7.Text = "Ángulo:";
             // 
@@ -327,7 +327,7 @@
             this.label3.Location = new System.Drawing.Point(228, 233);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(223, 25);
+            this.label3.Size = new System.Drawing.Size(161, 17);
             this.label3.TabIndex = 20;
             this.label3.Text = "Función Trigonométrica:";
             // 
@@ -335,14 +335,14 @@
             // 
             this.comboBoxFuncion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFuncion.FormattingEnabled = true;
-            this.comboBoxFuncion.ItemHeight = 25;
+            this.comboBoxFuncion.ItemHeight = 16;
             this.comboBoxFuncion.Items.AddRange(new object[] {
             "coseno",
             "seno"});
             this.comboBoxFuncion.Location = new System.Drawing.Point(437, 229);
             this.comboBoxFuncion.Margin = new System.Windows.Forms.Padding(5);
             this.comboBoxFuncion.Name = "comboBoxFuncion";
-            this.comboBoxFuncion.Size = new System.Drawing.Size(199, 33);
+            this.comboBoxFuncion.Size = new System.Drawing.Size(199, 24);
             this.comboBoxFuncion.TabIndex = 2;
             // 
             // label6
@@ -353,7 +353,7 @@
             this.label6.Location = new System.Drawing.Point(227, 100);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(312, 29);
+            this.label6.Size = new System.Drawing.Size(210, 20);
             this.label6.TabIndex = 11;
             this.label6.Text = "Complete el primer Fasor";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -375,7 +375,7 @@
             this.label2.Location = new System.Drawing.Point(228, 286);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 25);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "Pulsación:";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
@@ -386,7 +386,7 @@
             this.label1.Location = new System.Drawing.Point(224, 176);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 25);
+            this.label1.Size = new System.Drawing.Size(66, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "Amplitud:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -407,11 +407,11 @@
             this.tabOperacionesAvanzadas.Controls.Add(this.labelComplejo);
             this.tabOperacionesAvanzadas.Controls.Add(this.buttonRadicacion);
             this.tabOperacionesAvanzadas.Controls.Add(this.buttonPotencia);
-            this.tabOperacionesAvanzadas.Location = new System.Drawing.Point(4, 37);
+            this.tabOperacionesAvanzadas.Location = new System.Drawing.Point(4, 28);
             this.tabOperacionesAvanzadas.Margin = new System.Windows.Forms.Padding(5);
             this.tabOperacionesAvanzadas.Name = "tabOperacionesAvanzadas";
             this.tabOperacionesAvanzadas.Padding = new System.Windows.Forms.Padding(5);
-            this.tabOperacionesAvanzadas.Size = new System.Drawing.Size(1286, 614);
+            this.tabOperacionesAvanzadas.Size = new System.Drawing.Size(1286, 623);
             this.tabOperacionesAvanzadas.TabIndex = 3;
             this.tabOperacionesAvanzadas.Text = "OA";
             // 
@@ -421,7 +421,7 @@
             this.labelRaizOriginal.Location = new System.Drawing.Point(405, 270);
             this.labelRaizOriginal.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelRaizOriginal.Name = "labelRaizOriginal";
-            this.labelRaizOriginal.Size = new System.Drawing.Size(0, 25);
+            this.labelRaizOriginal.Size = new System.Drawing.Size(0, 17);
             this.labelRaizOriginal.TabIndex = 12;
             // 
             // label14
@@ -431,7 +431,7 @@
             this.label14.Location = new System.Drawing.Point(474, 39);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(346, 32);
+            this.label14.Size = new System.Drawing.Size(237, 24);
             this.label14.TabIndex = 11;
             this.label14.Text = "Operaciones Avanzadas";
             // 
@@ -454,7 +454,7 @@
             this.textBoxFactor.Location = new System.Drawing.Point(584, 147);
             this.textBoxFactor.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxFactor.Name = "textBoxFactor";
-            this.textBoxFactor.Size = new System.Drawing.Size(164, 30);
+            this.textBoxFactor.Size = new System.Drawing.Size(164, 23);
             this.textBoxFactor.TabIndex = 1;
             // 
             // textBoxComplejo
@@ -462,7 +462,7 @@
             this.textBoxComplejo.Location = new System.Drawing.Point(584, 105);
             this.textBoxComplejo.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxComplejo.Name = "textBoxComplejo";
-            this.textBoxComplejo.Size = new System.Drawing.Size(164, 30);
+            this.textBoxComplejo.Size = new System.Drawing.Size(164, 23);
             this.textBoxComplejo.TabIndex = 0;
             // 
             // labelResultPolar
@@ -471,7 +471,7 @@
             this.labelResultPolar.Location = new System.Drawing.Point(927, 313);
             this.labelResultPolar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelResultPolar.Name = "labelResultPolar";
-            this.labelResultPolar.Size = new System.Drawing.Size(0, 25);
+            this.labelResultPolar.Size = new System.Drawing.Size(0, 17);
             this.labelResultPolar.TabIndex = 9;
             // 
             // labelResultBinomial
@@ -480,7 +480,7 @@
             this.labelResultBinomial.Location = new System.Drawing.Point(927, 270);
             this.labelResultBinomial.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelResultBinomial.Name = "labelResultBinomial";
-            this.labelResultBinomial.Size = new System.Drawing.Size(0, 25);
+            this.labelResultBinomial.Size = new System.Drawing.Size(0, 17);
             this.labelResultBinomial.TabIndex = 8;
             // 
             // labelInfoResultPolar
@@ -489,7 +489,7 @@
             this.labelInfoResultPolar.Location = new System.Drawing.Point(735, 313);
             this.labelInfoResultPolar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelInfoResultPolar.Name = "labelInfoResultPolar";
-            this.labelInfoResultPolar.Size = new System.Drawing.Size(182, 25);
+            this.labelInfoResultPolar.Size = new System.Drawing.Size(133, 17);
             this.labelInfoResultPolar.TabIndex = 7;
             this.labelInfoResultPolar.Text = "Resultado en Polar:";
             // 
@@ -499,7 +499,7 @@
             this.labelInfoResultBinomial.Location = new System.Drawing.Point(735, 270);
             this.labelInfoResultBinomial.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelInfoResultBinomial.Name = "labelInfoResultBinomial";
-            this.labelInfoResultBinomial.Size = new System.Drawing.Size(211, 25);
+            this.labelInfoResultBinomial.Size = new System.Drawing.Size(153, 17);
             this.labelInfoResultBinomial.TabIndex = 6;
             this.labelInfoResultBinomial.Text = "Resultado en Binomial:";
             // 
@@ -509,7 +509,7 @@
             this.labelFactor.Location = new System.Drawing.Point(485, 150);
             this.labelFactor.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelFactor.Name = "labelFactor";
-            this.labelFactor.Size = new System.Drawing.Size(73, 25);
+            this.labelFactor.Size = new System.Drawing.Size(52, 17);
             this.labelFactor.TabIndex = 5;
             this.labelFactor.Text = "Factor:";
             // 
@@ -519,7 +519,7 @@
             this.labelComplejo.Location = new System.Drawing.Point(485, 109);
             this.labelComplejo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelComplejo.Name = "labelComplejo";
-            this.labelComplejo.Size = new System.Drawing.Size(101, 25);
+            this.labelComplejo.Size = new System.Drawing.Size(70, 17);
             this.labelComplejo.TabIndex = 4;
             this.labelComplejo.Text = "Complejo:";
             // 
@@ -560,11 +560,11 @@
             this.tabOperacionesBasicas.Controls.Add(this.labelResultadoBinomica);
             this.tabOperacionesBasicas.Controls.Add(this.textBoxNum2);
             this.tabOperacionesBasicas.Controls.Add(this.textBoxNum1);
-            this.tabOperacionesBasicas.Location = new System.Drawing.Point(4, 37);
+            this.tabOperacionesBasicas.Location = new System.Drawing.Point(4, 28);
             this.tabOperacionesBasicas.Margin = new System.Windows.Forms.Padding(5);
             this.tabOperacionesBasicas.Name = "tabOperacionesBasicas";
             this.tabOperacionesBasicas.Padding = new System.Windows.Forms.Padding(5);
-            this.tabOperacionesBasicas.Size = new System.Drawing.Size(1286, 614);
+            this.tabOperacionesBasicas.Size = new System.Drawing.Size(1286, 623);
             this.tabOperacionesBasicas.TabIndex = 2;
             this.tabOperacionesBasicas.Text = "OB";
             // 
@@ -588,7 +588,7 @@
             this.label8.Location = new System.Drawing.Point(499, 61);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(300, 32);
+            this.label8.Size = new System.Drawing.Size(206, 24);
             this.label8.TabIndex = 9;
             this.label8.Text = "Operaciones básicas";
             // 
@@ -598,7 +598,7 @@
             this.label5.Location = new System.Drawing.Point(387, 443);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(153, 25);
+            this.label5.Size = new System.Drawing.Size(112, 17);
             this.label5.TabIndex = 8;
             this.label5.Text = "Resultado polar:";
             // 
@@ -608,7 +608,7 @@
             this.label4.Location = new System.Drawing.Point(387, 383);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(188, 25);
+            this.label4.Size = new System.Drawing.Size(136, 17);
             this.label4.TabIndex = 7;
             this.label4.Text = "Resultado binomica:";
             // 
@@ -618,7 +618,7 @@
             this.labelResultadoPolar.Location = new System.Drawing.Point(563, 443);
             this.labelResultadoPolar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelResultadoPolar.Name = "labelResultadoPolar";
-            this.labelResultadoPolar.Size = new System.Drawing.Size(0, 25);
+            this.labelResultadoPolar.Size = new System.Drawing.Size(0, 17);
             this.labelResultadoPolar.TabIndex = 6;
             // 
             // buttonMultiplicacion
@@ -671,7 +671,7 @@
             this.labelResultadoBinomica.Location = new System.Drawing.Point(563, 385);
             this.labelResultadoBinomica.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelResultadoBinomica.Name = "labelResultadoBinomica";
-            this.labelResultadoBinomica.Size = new System.Drawing.Size(0, 25);
+            this.labelResultadoBinomica.Size = new System.Drawing.Size(0, 17);
             this.labelResultadoBinomica.TabIndex = 2;
             // 
             // textBoxNum2
@@ -679,7 +679,7 @@
             this.textBoxNum2.Location = new System.Drawing.Point(567, 273);
             this.textBoxNum2.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxNum2.Name = "textBoxNum2";
-            this.textBoxNum2.Size = new System.Drawing.Size(164, 30);
+            this.textBoxNum2.Size = new System.Drawing.Size(164, 23);
             this.textBoxNum2.TabIndex = 1;
             // 
             // textBoxNum1
@@ -687,7 +687,7 @@
             this.textBoxNum1.Location = new System.Drawing.Point(567, 196);
             this.textBoxNum1.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxNum1.Name = "textBoxNum1";
-            this.textBoxNum1.Size = new System.Drawing.Size(164, 30);
+            this.textBoxNum1.Size = new System.Drawing.Size(164, 23);
             this.textBoxNum1.TabIndex = 0;
             this.textBoxNum1.TextChanged += new System.EventHandler(this.textBoxNum1_TextChanged);
             // 
@@ -703,11 +703,11 @@
             this.tabTransformaciones.Controls.Add(this.buttonTipo);
             this.tabTransformaciones.Controls.Add(this.labelComplejoEnForma);
             this.tabTransformaciones.Controls.Add(this.textBoxTransformacion);
-            this.tabTransformaciones.Location = new System.Drawing.Point(4, 37);
+            this.tabTransformaciones.Location = new System.Drawing.Point(4, 28);
             this.tabTransformaciones.Margin = new System.Windows.Forms.Padding(5);
             this.tabTransformaciones.Name = "tabTransformaciones";
             this.tabTransformaciones.Padding = new System.Windows.Forms.Padding(5);
-            this.tabTransformaciones.Size = new System.Drawing.Size(1286, 614);
+            this.tabTransformaciones.Size = new System.Drawing.Size(1286, 623);
             this.tabTransformaciones.TabIndex = 0;
             this.tabTransformaciones.Text = "EDT";
             // 
@@ -731,7 +731,7 @@
             this.labelFormatoIncorrecto.Location = new System.Drawing.Point(873, 179);
             this.labelFormatoIncorrecto.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelFormatoIncorrecto.Name = "labelFormatoIncorrecto";
-            this.labelFormatoIncorrecto.Size = new System.Drawing.Size(192, 25);
+            this.labelFormatoIncorrecto.Size = new System.Drawing.Size(127, 17);
             this.labelFormatoIncorrecto.TabIndex = 7;
             this.labelFormatoIncorrecto.Text = "Formato Incorrecto";
             // 
@@ -742,7 +742,7 @@
             this.labelTitulo.Location = new System.Drawing.Point(516, 60);
             this.labelTitulo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(258, 32);
+            this.labelTitulo.Size = new System.Drawing.Size(177, 24);
             this.labelTitulo.TabIndex = 6;
             this.labelTitulo.Text = "Transformaciones";
             this.labelTitulo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -755,7 +755,7 @@
             this.labelTransformar.Location = new System.Drawing.Point(855, 396);
             this.labelTransformar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTransformar.Name = "labelTransformar";
-            this.labelTransformar.Size = new System.Drawing.Size(0, 25);
+            this.labelTransformar.Size = new System.Drawing.Size(0, 17);
             this.labelTransformar.TabIndex = 5;
             // 
             // buttonTransformar
@@ -777,7 +777,7 @@
             this.labelTransformado.Location = new System.Drawing.Point(873, 320);
             this.labelTransformado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTransformado.Name = "labelTransformado";
-            this.labelTransformado.Size = new System.Drawing.Size(118, 25);
+            this.labelTransformado.Size = new System.Drawing.Size(78, 17);
             this.labelTransformado.TabIndex = 3;
             this.labelTransformado.Text = "respuestas";
             this.labelTransformado.Click += new System.EventHandler(this.label2_Click);
@@ -801,7 +801,7 @@
             this.labelComplejoEnForma.Location = new System.Drawing.Point(873, 280);
             this.labelComplejoEnForma.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelComplejoEnForma.Name = "labelComplejoEnForma";
-            this.labelComplejoEnForma.Size = new System.Drawing.Size(118, 25);
+            this.labelComplejoEnForma.Size = new System.Drawing.Size(78, 17);
             this.labelComplejoEnForma.TabIndex = 1;
             this.labelComplejoEnForma.Text = "respuestas";
             // 
@@ -811,7 +811,7 @@
             this.textBoxTransformacion.Location = new System.Drawing.Point(492, 176);
             this.textBoxTransformacion.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textBoxTransformacion.Name = "textBoxTransformacion";
-            this.textBoxTransformacion.Size = new System.Drawing.Size(269, 31);
+            this.textBoxTransformacion.Size = new System.Drawing.Size(269, 23);
             this.textBoxTransformacion.TabIndex = 0;
             this.textBoxTransformacion.TextChanged += new System.EventHandler(this.textBoxTransformacion_TextChanged);
             // 
@@ -838,9 +838,9 @@
             this.tabInicio.Controls.Add(this.label21);
             this.tabInicio.Controls.Add(this.label19);
             this.tabInicio.Controls.Add(this.label18);
-            this.tabInicio.Location = new System.Drawing.Point(4, 37);
+            this.tabInicio.Location = new System.Drawing.Point(4, 28);
             this.tabInicio.Name = "tabInicio";
-            this.tabInicio.Size = new System.Drawing.Size(1286, 614);
+            this.tabInicio.Size = new System.Drawing.Size(1286, 623);
             this.tabInicio.TabIndex = 5;
             this.tabInicio.Text = "Inicio";
             // 
@@ -850,7 +850,7 @@
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label22.Location = new System.Drawing.Point(177, 458);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(1219, 29);
+            this.label22.Size = new System.Drawing.Size(808, 20);
             this.label22.TabIndex = 4;
             this.label22.Text = "Equipo: Nahuel De Leonardis, Santiago Hernan Anaya, Nicolas Coen, Ivana Mazzini, " +
     "Florencia Rodriguez Sandez";
@@ -862,7 +862,7 @@
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label21.Location = new System.Drawing.Point(558, 380);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(157, 29);
+            this.label21.Size = new System.Drawing.Size(105, 20);
             this.label21.TabIndex = 3;
             this.label21.Text = "Curso: K3011";
             // 
@@ -872,7 +872,7 @@
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label19.Location = new System.Drawing.Point(270, 248);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(850, 32);
+            this.label19.Size = new System.Drawing.Size(571, 24);
             this.label19.TabIndex = 1;
             this.label19.Text = "Seleccione uno de los botones de la barra superior para comenzar";
             // 
@@ -882,16 +882,16 @@
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.label18.Location = new System.Drawing.Point(175, 97);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(1080, 46);
+            this.label18.Size = new System.Drawing.Size(736, 31);
             this.label18.TabIndex = 0;
             this.label18.Text = "TRABAJO PRÁCTICO DE MATEMÁTICA SUPERIOR 2019";
             // 
             // Inicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1320, 684);
+            this.ClientSize = new System.Drawing.Size(1326, 684);
             this.Controls.Add(this.tabControl);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

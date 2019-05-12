@@ -14,9 +14,10 @@ namespace superioratr
         public Inicio()
         {
             InitializeComponent();
-			listView1.Columns.Add("Header", 100);
-			listView1.Columns.Add("Details", 100);
-		}
+			listView1.Columns.Add("Raiz", 100);
+            listView1.Columns.Add("Modulo", 100);
+            listView1.Columns.Add("Angulo", 100);
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -74,13 +75,9 @@ namespace superioratr
         {
           if(NOEstaVacio())
             {
-
                 Complejo complejo = new Complejo(textBoxTransformacion.Text);
                 labelTransformar.Text = complejo.MostrarTransformado(complejo);
             }
-
-
-
         }
 
         private bool NOEstaVacio()
@@ -212,8 +209,9 @@ namespace superioratr
 			foreach (Complejo c in raices)
             {
                 ListViewItem item = new ListViewItem("W"+i);
-                item.SubItems.Add(c.parteImaginaria.ToString());
-				listView1.Items.Add(item);
+                item.SubItems.Add(c.modulo.ToString());
+                item.SubItems.Add(c.angulo.ToString());
+                listView1.Items.Add(item);
                 //items[i] = item;
                 i++;
 			}
